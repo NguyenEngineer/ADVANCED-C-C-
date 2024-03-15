@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+
 # ADVANCE C
----
 
 ## **LESSION 1: Compiler - Macro**
 ## **LESSION 2: STDARG - ASSERT**
@@ -173,6 +172,7 @@ Ví dụ nếu dùng biến static:
                            return 0;
                        }
 
+
 ## **LESSION 6: BITMASK**
 Được sử dụng để tối ưu hóa bộ nhớ.
 
@@ -189,6 +189,4 @@ Ví dụ nếu dùng biến static:
   * Còn nếu là số dương (bit dấu = 0) thì khi dịch phải truyền vào số 0.
  
 =======
-# ADVANCED-C-C-
-
->>>>>>> 662551a82ca59ccf2d068acde68f04a67677cda0
+# 
