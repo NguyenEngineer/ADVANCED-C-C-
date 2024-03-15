@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ADVANCE C
 ---
 
@@ -187,3 +188,7 @@ Ví dụ nếu dùng biến static:
   * Bit dấu: nếu bit max là 1 thì đó là số âm nên khi dịch phải mình bù vào số 1.
   * Còn nếu là số dương (bit dấu = 0) thì khi dịch phải truyền vào số 0.
  
+=======
+# ADVANCED-C-C-
+
+>>>>>>> 662551a82ca59ccf2d068acde68f04a67677cda0
