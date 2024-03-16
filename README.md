@@ -40,6 +40,8 @@
 - Có thể điều khiển quá trình cấp phát hoặc giải phóng bộ nhớ bằng các câu lệnh như **malloc, calloc, relloc. free, delete,**...
 - Khi dùng xong thì phải delete nếu không sẽ bị leak memory.
 ![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/659d19b0-b7c7-470c-8cc8-ceeaf96db913)
+
+
        - Malloc & Calloc: 
        >- Malloc: void * malloc(size_t size);
        >- Mục đích: cấp phát một vùng nhớ có kích thước là **size**.
