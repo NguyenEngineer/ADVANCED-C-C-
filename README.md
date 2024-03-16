@@ -1,8 +1,11 @@
 
 # ADVANCE C
+## **LESSION 1: Compiler - Macro C**
+## **LESSION 2: STDARG - assert.h**
+## **LESSION 3: Point in C**
 
 
-## **LESSION 1: Compiler - Macro**
+## **LESSION 4: Memory layout in C**
  The memory layout in C programming language:
 > - Text segment.
 > - Initialized data segment.
@@ -58,7 +61,7 @@
 - Mỗi khi các function được gọi thì nó sẽ được push vào vùng stack.
 
   
-## **LESSION 4: EXTERN - STATIC - VOLATILE - REGISTER**
+## **LESSION 5: EXTERN - STATIC - VOLATILE - REGISTER**
 ### EXTERN ###
 - Dùng để tham chiếu một biến, hàm có cùng name đã được định nghĩa ở nơi khác.
 - Khai báo thôi chứ không định nghĩa, biến được kêu ra phải là biến toàn cục của file khác.
@@ -86,7 +89,7 @@ Ví dụ nếu dùng biến static:
 
 
 
-## **LESSION 5: GOTO - setjmp**
+## **LESSION 6: GOTO - setjmp**
 *Goto* là một từ khóa trong ngôn ngữ lập trình C cho phép người dùng nhảy đến một label đã được đặt trước đó trong cùng một. Không được khuyến khích dùng vì nó làm cho chương trình trở nên khó đọc và bảo trì. 
 >- Ví dụ về từ khóa *go to*
 
@@ -180,7 +183,7 @@ Ví dụ nếu dùng biến static:
                        }
 
 
-## **LESSION 6: BITMASK**
+## **LESSION 7: BITMASK**
 
 - NOT bit: Đảo bit.      Ví dụ: ~1 = 0 hoặc ~0 = 1
  
