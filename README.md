@@ -208,3 +208,23 @@ Ví dụ nếu dùng biến static:
   * Bit dấu: nếu bit max là 1 thì đó là số âm nên khi dịch phải mình bù vào số 1.
   * Còn nếu là số dương (bit dấu = 0) thì khi dịch phải truyền vào số 0.
  
+## **LESSION 8: Struct & Union in C**
+
+ ### Struct ###
+  - Là một nhóm kiểu dữ liệu người dùng tự định nghĩa.
+  - Mỗi nhóm KDL đều có địa chỉ ô nhớ riêng của nó.
+  - Kích thước kiểu dữ kiệu Struct này là tổng byte các kiểu dữ liệu có trong Struct.         VD: struct Example {    // Struct này sẽ lấy kiểu dữ liệu có byte lớn nhất để tính (ở đây là int có 4 byte) 
+                                                                                                     uint8_t a;   //   |1|0|0|0|  chiếm 1 byte
+                                                                                                     uint16_t b;  //   |1|1|1|0|  chiếm 2 byte vì đủ kích thước để chứa trong 4 ô
+                                                                                                     uint32_t c;  //   |1|1|1|0|  KDL này có 4 byte ko đủ trong ô nhớ vì chỉ còn dư 1 ô
+                                                                                                                  //   |1|1|1|1|  nên sẽ tạo thêm 4 ô nữa để chứa đủ 4 byte KDL
+                                                                                                  };                  // Tổng kích thước sẽ là 8 byte.
+ ### Union ###
+  - Là một cấu trúc dữ liệu nhóm gồm nhiều kiểu dữ liệu khác nhau vào chung 1 Union, mỗi khi dùng thì chỉ 1 thành viên trong Union dùng vùng nhớ.
+  - Dùng để tối kích thước bộ nhớ vì khi dùng 1 thành viên được gọi sẽ sử dụng vùng nhớ đã được cấp đó, tương tự như các thành viên còn lại.
+  - Mỗi thành viên đều dùng chung địa chỉ ô nhớ đó.
+  - Union chỉ cho phép dùng chung 1 vùng nhớ có kiểu dữ liệu lớn nhất trong nó.               VD: Union Example {    // Union này sẽ lấy kiểu dữ liệu có byte lớn nhất (ở đây là int có 4 byte) 
+                                                                                                     uint8_t a;   //   |1|0|0|0|  khi được gọi thì biến a (1 byte) chỉ dùng 4 ô.
+                                                                                                     uint16_t b;  //   |1|1|0|0|  khi được gọi thì biến b (2 byte) chỉ dùng 4 ô.
+                                                                                                     uint32_t c;  //   |1|1|1|1|  khi được gọi thì biến c (4 byte) chỉ dùng 4 ô.
+                                                                                                  };                 // Tổng kích thước sẽ là 4 byte.
