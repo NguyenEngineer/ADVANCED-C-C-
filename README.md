@@ -5,8 +5,10 @@
 ## **LESSION 2: STDARG - ASSERT**
 ## **LESSION 3: POINTER**
 ## **LESSION 4: MEMORY LAYOUT**
- **Mục đích bài học:** Cách tổ chức và phân bổ đóng vai trò quan trọng trong việc thực thi một chương trình. Hiểu được nó thì ta sẽ có nền tảng trong việc lập trình.
 
+
+ 
+## **LESSION 1: Compiler - Macro**
  In C programming language, **the memory layout** consists of the following sections:
 > - Text segment.
 > - Initialized data segment.
@@ -77,7 +79,11 @@ Ví dụ nếu dùng biến static:
 #### Static với biến toàn cục và hàm: ####
 - Dùng được trong chương trình không cho bên ngoài dùng kể cả **EXTERN.**
 ### VOLATILE ###
+
 ### REGISTER ###
+
+
+
 ## **LESSION 5: GOTO - setjmp**
 *Goto* là một từ khóa trong ngôn ngữ lập trình C cho phép người dùng nhảy đến một label đã được đặt trước đó trong cùng một. Không được khuyến khích dùng vì nó làm cho chương trình trở nên khó đọc và bảo trì. 
 >- Ví dụ về từ khóa *go to*
@@ -174,19 +180,25 @@ Ví dụ nếu dùng biến static:
 
 
 ## **LESSION 6: BITMASK**
-Được sử dụng để tối ưu hóa bộ nhớ.
 
-- NOT biswise: Khi thực hiện phép toán này thì kết quả của nó là đão của nó. Ví dụ: 1 not bitwise được kết quả là 0
-- AND biswise: Kết quả là 1 nếu 2 bit đều là 1, còn lại là 0.
-  * Có 1 phép toán hay. Ví dụ nếu ta muốn coi 1 số là chẵn lẽ thì mình có thể dùng %2 nhưng ngoài ra mình cũng có thể sử dụng bitwise AND(&). Mình chỉ cần & số đó với 1(&1).
-  * Nếu kết quả là 1 thì số đó là số lẻ, còn kết quả là 0 thì số đó là số chẵn
-  * Giải thích: tại vì số lẻ là số có bit bên trái ngoài cùng là 1, còn số chẵn thì là số 0. Khi &1 thì tất cả 7 bit trong đều về 0, còn trạng thái của bit cuối &1 thôi. Nên nếu 1&1 sẽ ra 1=>số chẵn, ngược lại số lẻ.
-- OR biswise: 0 OR 0 là 0, còn lại là 1.
-- XOR bitwise: giống nhau thì bằng 0, khác nhau = 1.
+- NOT bit: Đảo bit.      Ví dụ: ~1 = 0 hoặc ~0 = 1
+ 
+- AND biswise: Nhân bit. 0 & 0 = 0
+                         1 & 0 = 0
+                         0 & 1 = 0
+                         1 & 1 = 1
+  
+- OR biswise: cộng bit.  0 & 0 = 0
+                         1 & 0 = 1
+                         0 & 1 = 1
+                         1 & 1 = 1
+  
+- XOR bitwise: cộng bit.  0 & 0 = 0
+                          1 & 0 = 1
+                          0 & 1 = 1
+                          1 & 1 = 0
 - Sift Left và Shif Right bitwise: << (dịch trái) , >> (dịch phải).
-  * Thường ta sẽ bù bit 0 nhưng khi dịch phải có 1 lưu ý đó là: phải chú ý đến bit cao nhất(bit dấu).
+  * Thường ta sẽ bù bit 0 nhưng khi dịch phải có 1 lưu ý đó là: phải chú ý đến bit cao nhất (bit dấu).
   * Bit dấu: nếu bit max là 1 thì đó là số âm nên khi dịch phải mình bù vào số 1.
   * Còn nếu là số dương (bit dấu = 0) thì khi dịch phải truyền vào số 0.
  
-=======
-# 
