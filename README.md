@@ -231,7 +231,7 @@ Ví dụ nếu dùng biến static:
                                                                                                   };                 // Tổng kích thước sẽ là 4 byte.
  ### Dùng kết hợp Union && Struct ###
  - Dùng để chia nhỏ dữ liệu ra để dễ xử lý hơn.
- - >- Ví dụ:
+  >- Ví dụ:
           typedef union
           {
               struct 
