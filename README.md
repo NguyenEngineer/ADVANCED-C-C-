@@ -7,7 +7,11 @@
 - Bản chất của mảng là địa chỉ.
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
 - khi khai báo kiểu dữ liệu cho biến con trỏ thì chỉ tham số truyền vào phải đúng KDL đã khai báo của nó. VD: int *ptr (thì biến con trỏ ptr chỉ nhận kiểu dữ liệu int)
-- Con trỏ hàm là 
+- Con trỏ hàm là
+
+- const int *ptr là 1 con trỏ hằng số, có thể trỏ đến các đối tượng khác, giá trị của con trỏ này trỏ tới được xem như là 1 hằng số không thể thay đổi.
+  
+- int *const ADD là không thể trỏ đến các đối tượng khác, giá trị của con trỏ này trỏ có thể thay đổi được.
 
 ## **LESSION 4: Memory layout in C**
  The memory layout in C programming language:
