@@ -220,11 +220,29 @@ Ví dụ nếu dùng biến static:
                                                                                                                   //   |1|1|1|1|  nên sẽ tạo thêm 4 ô nữa để chứa đủ 4 byte KDL
                                                                                                   };                  // Tổng kích thước sẽ là 8 byte.
  ### Union ###
-  - Là một cấu trúc dữ liệu nhóm gồm nhiều kiểu dữ liệu khác nhau vào chung 1 Union, mỗi khi dùng thì chỉ 1 thành viên trong Union dùng vùng nhớ.
+  - Union trong C là một kiểu dữ liệu đặc biệt có sẵn trong C cho phép lưu trữ các kiểu dữ liệu khác nhau trong cùng một vị trí bộ nhớ.
+  - Cấu trúc của Union là tất cả các thành phần của nó dùng chung một vùng nhớ có kích thước tương ứng với thành phần lớn nhất.
   - Dùng để tối kích thước bộ nhớ vì khi dùng 1 thành viên được gọi sẽ sử dụng vùng nhớ đã được cấp đó, tương tự như các thành viên còn lại.
   - Mỗi thành viên đều dùng chung địa chỉ ô nhớ đó.
   - Union chỉ cho phép dùng chung 1 vùng nhớ có kiểu dữ liệu lớn nhất trong nó.               VD: Union Example {    // Union này sẽ lấy kiểu dữ liệu có byte lớn nhất (ở đây là int có 4 byte) 
-                                                                                                     uint8_t a;   //   |1|0|0|0|  khi được gọi thì biến a (1 byte) chỉ dùng 4 ô.
-                                                                                                     uint16_t b;  //   |1|1|0|0|  khi được gọi thì biến b (2 byte) chỉ dùng 4 ô.
-                                                                                                     uint32_t c;  //   |1|1|1|1|  khi được gọi thì biến c (4 byte) chỉ dùng 4 ô.
+                                                                                                     uint8_t a;   //   |1|0|0|0|  khi được gọi thì biến a (1 byte) chỉ dùng 4 ô. ADD |0x1|0x2|0x3|0x4|
+                                                                                                     uint16_t b;  //   |1|1|0|0|  khi được gọi thì biến b (2 byte) chỉ dùng 4 ô. ADD |0x1|0x2|0x3|0x4|
+                                                                                                     uint32_t c;  //   |1|1|1|1|  khi được gọi thì biến c (4 byte) chỉ dùng 4 ô. ADD |0x1|0x2|0x3|0x4|
                                                                                                   };                 // Tổng kích thước sẽ là 4 byte.
+ ### Dùng kết hợp Union && Struct ###
+ - Dùng để chia nhỏ dữ liệu ra để dễ xử lý hơn.
+ - >- Ví dụ:
+          typedef union
+          {
+              struct 
+              {
+                  uint8_t ID[2];
+                  uint8_t data[4];
+                  uint8_t PRB[2];     //  Struct data này có chiều dài là 8 byte
+              }data;
+              
+              uint8_t frame[8];       // biến này chiếm 1 byte
+          } DT_frame;                 => Union này lấy 8 byte cùng nhớ
+
+- 
+ 
