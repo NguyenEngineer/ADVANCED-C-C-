@@ -4,6 +4,8 @@
 ## **LESSION 2: STDARG - assert.h**
 ## **LESSION 3: Point in C**
 
+- Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
+- khi khai báo kiểu dữ liệu cho biến con trỏ thì chỉ tham số truyền vào phải đúng KDL đã khai báo của nó. VD: int *ptr (thì biến con trỏ ptr chỉ nhận kiểu dữ liệu int)
 
 ## **LESSION 4: Memory layout in C**
  The memory layout in C programming language:
