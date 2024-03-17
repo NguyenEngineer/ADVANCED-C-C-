@@ -232,6 +232,7 @@ Ví dụ nếu dùng biến static:
  ### Dùng kết hợp Union && Struct ###
  - Dùng để chia nhỏ dữ liệu ra để dễ xử lý hơn.
   >- Ví dụ:
+    
           typedef union
           {
               struct 
@@ -240,7 +241,6 @@ Ví dụ nếu dùng biến static:
                   uint8_t data[4];
                   uint8_t PRB[2];     //  Struct data này có chiều dài là 8 byte
               }data;
-              
               uint8_t frame[8];       // biến này chiếm 1 byte
           } DT_frame;                 => Union này lấy 8 byte cùng nhớ
 
