@@ -259,4 +259,29 @@ Ví dụ nếu dùng biến static:
               }data;
               uint8_t frame[8];       // biến này chiếm 1 byte
           } DT_frame;                 => Union này lấy 8 byte cùng nhớ
+          
+## **LESSION 9: JSON in C**
+- Định dạng: luôn bắt đầu bằng dấu "........."
+              Một object luôn nằm trong dấu {........}
+              "<key (luôn là kiểu String)>"  :  " value "
 
+  VD:        char *json = "
+            {
+              "name" : "Nguyen",
+              "age" : 23,
+              "City" : "BinnDinh",
+              "Job"  : "Embedded"
+              "SLR"  : [20, 30, 50]
+            } "
+
+- Các kiểu của JSON                              typedef enum {
+                                                              JS_NULL,
+                                                              JS_Boolean,
+                                                              JS_Number,
+                                                              JS_String,
+                                                              JS_Array,
+                                                              JS_Ọpect
+                                                  } JS_type;
+
+  
+  ## **LESSION 10: Linker List**
