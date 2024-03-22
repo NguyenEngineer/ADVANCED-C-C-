@@ -8,6 +8,24 @@
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
 - khi khai báo kiểu dữ liệu cho biến con trỏ thì chỉ tham số truyền vào phải đúng KDL đã khai báo của nó. VD: int *ptr (thì biến con trỏ ptr chỉ nhận kiểu dữ liệu int)
 - Con trỏ hàm là
+                            VD:
+
+                                       void sum (int a, int b)
+                                      {
+                                          printf("tong la: %d\n", a+b);
+                                      }
+                                      void tich (int a, int b)
+                                      {
+                                          printf("tong la: %d\n", a/b);
+                                      }
+                                      void caculater( void (*pheptinh) (int, int), int a, int b)
+                                      {
+                                          pheptinh(a,b);
+                                      }
+                                      int main()
+                                      {
+                                          caculater(&sum, 8, 9);
+                                      }
 
 - const int *ptr là 1 con trỏ hằng số, có thể trỏ đến các đối tượng khác, giá trị của con trỏ này trỏ tới được xem như là 1 hằng số không thể thay đổi.
   
