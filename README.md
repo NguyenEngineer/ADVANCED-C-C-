@@ -283,14 +283,16 @@ Ví dụ nếu dùng biến static:
               Một object luôn nằm trong dấu {........}
               "<key (luôn là kiểu String)>"  :  " value "
 
-  VD:        char *json = "
-            {
-              "name" : "Nguyen",
-              "age" : 23,
-              "City" : "BinnDinh",
-              "Job"  : "Embedded"
-              "SLR"  : [20, 30, 50]
-            } "
+  VD:
+
+                    char *json = "
+                    {
+                      "name" : "Nguyen",
+                      "age" : 23,
+                      "City" : "BinnDinh",
+                      "Job"  : "Embedded"
+                      "SLR"  : [20, 30, 50]
+                    } "
 
 - Các kiểu của JSON                              typedef enum {
                                                               JS_NULL,
