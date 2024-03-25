@@ -326,6 +326,7 @@ Ví dụ nếu dùng biến static:
   
 </details>
 <details><summary> LESSION 11: Stack and Queue </summary>
+  
 Stack: 
 - là một cấu trúc dữ liệu được xếp theo nguyên tắc LIFO (Last in Firt out), nghĩa là phần từ đầu tiên được đưa vào thì sẽ được lấy ra sau cùng và phần tử được đưa vào cuối cùng sẽ được lấy ra đầu tiên.
 - Thao tác trên Stack:     - Push - Pop - Top 
@@ -356,11 +357,11 @@ Stack:
                                 }
                                 
                                 int is_full( Stack stack) {
-                                    return stack.top == stack.size - 1;
+                                    return stack.top == stack.size - 1;          // Kiểm tra vị trí hiện tại có bằng với size đó ko. VD: stach.top = 4, stack.size-1 = 5 - 1 2 cái bằng nhau thì trả về 1.
                                 }
                                 
                                 void push( Stack *stack, int value) {
-                                    if (!is_full(*stack)) {
+                                    if (!is_full(*stack)) {                      // kiểm tra xem stack đó đã max phần tử hay chưa
                                         stack->items[++stack->top] = value;
                                     } else {
                                         printf("Stack overflow\n");
@@ -369,7 +370,7 @@ Stack:
                                 
                                 int pop( Stack *stack) {
                                     if (!is_empty(*stack)) {
-                                        return stack->items[stack->top--];
+                                        return stack->items[stack->top--];       // trả về giá trị item và top - 1 VD: top = 3,   stack->top-- = 3-1 = 2,  return imtems[2].
                                     } else {
                                         printf("Stack underflow\n");
                                         return -1;
@@ -406,3 +407,8 @@ Stack:
                                 
                                     return 0;
                                 }
+Queue:
+- một cấu trúc dữ liệu được xếp theo nguyên tắc FIFO (Fast in Firt out), nghĩa là phần từ đầu tiên được thêm vào sẽ được lấy ra đầu tiên.
+- “enqueue” (thêm phần tử vào cuối hàng đợi)
+- “dequeue” (lấy phần tử từ đầu hàng đợi). 
+- “front”   để lấy giá trị của phần tử đứng đầu hàng đợi.
