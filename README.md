@@ -409,8 +409,8 @@ Stack:
                                 }
 Queue:
 - một cấu trúc dữ liệu được xếp theo nguyên tắc FIFO (Fast in Firt out), nghĩa là phần từ đầu tiên được thêm vào sẽ được lấy ra đầu tiên.
-- “enqueue” (thêm phần tử vào cuối hàng đợi)
-- “dequeue” (lấy phần tử từ đầu hàng đợi). 
+- “enqueue” (thêm phần tử vào cuối hàng đợi)      ( nếu đã full mà enqueue nữa thì sẽ bị Stack overflow )
+- “dequeue” (lấy phần tử từ đầu hàng đợi).      ( nếu ko có phần tử nào trong mảng đó thì khi dequeue thì sẽ báo lỗi )
 - “front”   để lấy giá trị của phần tử đứng đầu hàng đợi.
 
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/73e6bfe1-6d68-4746-ae66-595f37fec8c6)
@@ -438,18 +438,18 @@ Queue:
                                 }
                                 
                                 int is_full(Queue queue) {
-                                    return (queue.rear + 1) % queue.size == queue.front;
+                                    return (queue.rear + 1) % queue.size == queue.front;           // (4 + 1) % 5 = 0 => đủ bộ nhớ
                                 }
                                 
-                                void enqueue(Queue *queue, int value) {
-                                    if (!is_full(*queue)) {
-                                        if (is_empty(*queue)) {
-                                            queue->front = queue->rear = 0;
+                                void enqueue(Queue *queue, int value) {                            // Thêm phần tử vào
+                                    if (!is_full(*queue)) {                                        // kiểm tra có bị full hay ko
+                                        if (is_empty(*queue)) {                                    // kiểm tra có bị rỗng hay ko
+                                            queue->front = queue->rear = 0;                            // nếu rỗng thì gán front và rear = 0 để chỉ tới ô thứ tự đầu tiên trong mảng
                                         } else {
-                                            queue->rear = (queue->rear + 1) % queue->size;
-                                        }
-                                        queue->items[queue->rear] = value;
-                                    } else {
+                                            queue->rear = (queue->rear + 1) % queue->size;             // nếu không rỗng thì gán vào rear để chỉ tới ô thứ tự rear trong mảng. VD: (0 + 1) % 5 = 0.1 dư 1 => rear = 1
+                                        }                                                                                                                                          (1 + 1) % 5 = 0.2 dư 2 => rear = 2
+                                        queue->items[queue->rear] = value;                         // gán giá trị vào ô thứ tự rear đó. VD: rear =0 thì items[0] = 4.
+                                    } else {                                                                                                            items[1] = 5.
                                         printf("Queue overflow\n");
                                     }
                                 }
