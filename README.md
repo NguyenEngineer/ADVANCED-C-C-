@@ -2,7 +2,7 @@
 # ADVANCE C
 ## **LESSION 1: Compiler - Macro C**
 ## **LESSION 2: STDARG - assert.h**
-## **LESSION 3: Point in C**
+<details><summary> LESSION 3: Point in C</summary>
 
 - Bản chất của mảng là địa chỉ.
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
@@ -305,3 +305,9 @@ Ví dụ nếu dùng biến static:
 
   
   ## **LESSION 10: Linker List**
+<details><summary> LESSION 11: Stack and Queue </summary>
+Stack: 
+- là một cấu trúc dữ liệu được xếp theo nguyên tắc LIFO (Last in Firt out), nghĩa là phần từ đầu tiên được đưa vào thì sẽ được lấy ra sau cùng và phần tử được đưa vào cuối cùng sẽ được lấy ra đầu tiên.
+  ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/120b0018-4490-49f0-b9ec-1a15a7e94622)
+
+- Thao tác trên Stack:     - Push - Pop - Top 
