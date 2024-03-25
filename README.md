@@ -1,7 +1,14 @@
 
 # ADVANCE C
+
+</details>
 <details><summary> LESSION 1: Compiler - Macro C</summary>
+  
+</details>
 <details><summary> LESSION 2: STDARG - assert.h</summary>
+
+  
+</details>
 <details><summary> LESSION 3: Point in C</summary>
 - Bản chất của mảng là địa chỉ.
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
@@ -30,7 +37,10 @@
   
 - int *const ADD là không thể trỏ đến các đối tượng khác, giá trị của con trỏ này trỏ có thể thay đổi được.
 
+
+</details>
 <details><summary> LESSION 4: Memory layout in C</summary>
+  
  The memory layout in C programming language:
 > - Text segment.
 > - Initialized data segment.
@@ -88,7 +98,9 @@
 - Mỗi khi các function được gọi thì nó sẽ được push vào vùng stack.
 
   
+</details>
 <details><summary> LESSION 5: EXTERN - STATIC - VOLATILE - REGISTER</summary>
+  
 ### EXTERN ###
 - Dùng để tham chiếu một biến, hàm có cùng name đã được định nghĩa ở nơi khác.
 - Khai báo thôi chứ không định nghĩa, biến được kêu ra phải là biến toàn cục của file khác.
@@ -115,6 +127,7 @@ Ví dụ nếu dùng biến static:
 ### REGISTER ###
 
 
+</details>
 <details><summary> LESSION 6: GOTO - setjmp</summary>
   
 *Goto* là một từ khóa trong ngôn ngữ lập trình C cho phép người dùng nhảy đến một label đã được đặt trước đó trong cùng một. Không được khuyến khích dùng vì nó làm cho chương trình trở nên khó đọc và bảo trì. 
@@ -210,6 +223,7 @@ Ví dụ nếu dùng biến static:
                        }
 
 
+</details>
 <details><summary> LESSION 7: BITMASK</summary>
 
 - NOT bit: Đảo bit.      Ví dụ: ~1 = 0 hoặc ~0 = 1
@@ -234,6 +248,7 @@ Ví dụ nếu dùng biến static:
   * Còn nếu là số dương (bit dấu = 0) thì khi dịch phải truyền vào số 0.
 
  
+</details>
 <details><summary> LESSION 8: Struct & Union in C</summary>
 
  ### Struct ###
@@ -277,7 +292,8 @@ Ví dụ nếu dùng biến static:
               }data;
               uint8_t frame[8];       // biến này chiếm 1 byte
           } DT_frame;                 => Union này lấy 8 byte cùng nhớ
-          
+  
+</details>        
 <details><summary> LESSION 9: JSON in C</summary>
   
 - Định dạng: luôn bắt đầu bằng dấu "........."
@@ -305,8 +321,10 @@ Ví dụ nếu dùng biến static:
                                                   } JS_type;
 
   
+</details>
 <details><summary> LESSION 10: Linker List</summary>
   
+</details>
 <details><summary> LESSION 11: Stack and Queue </summary>
 Stack: 
 - là một cấu trúc dữ liệu được xếp theo nguyên tắc LIFO (Last in Firt out), nghĩa là phần từ đầu tiên được đưa vào thì sẽ được lấy ra sau cùng và phần tử được đưa vào cuối cùng sẽ được lấy ra đầu tiên.
