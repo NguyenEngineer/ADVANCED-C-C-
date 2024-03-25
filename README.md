@@ -332,4 +332,77 @@ Stack:
   
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/120b0018-4490-49f0-b9ec-1a15a7e94622)
 
-
+- PUSH : Đưa phần tử vào
+- POP : Lấy phần tử trên cùng ra
+- TOP : Lấy giá trị trên cùng
+- VD:
+  
+                                typedef struct Stack {      // Khởi tạo struct chứa các kiểu dữ liệu của stack
+                                    int* items;
+                                    int size;
+                                    int top;
+                                } Stack;
+                                
+                                void initialize( Stack *stack, int size) {                // khởi tạo stack và size của nó
+                                    stack->items = (int*) malloc(sizeof(int) * size);     // cấp phát ô nhớ cho mảng stack có size ổ nhớ của phân từ và mỗi ô nhớ của phần tử đó kích thước kiểu int
+                                                                                            // Vd size = 5 thì mảng stack đó có 5 phần tử và mỗi phần tử có kích thước 4byte kiểu int. size của mảng sẽ là 20 byte
+                                                                                            // kích thước mảng= kích thước của mỗi phần tử X số lượng phần tử    
+                                    stack->size = size;  
+                                    stack->top = -1;
+                                }
+                                
+                                int is_empty( Stack stack) {
+                                    return stack.top == -1;
+                                }
+                                
+                                int is_full( Stack stack) {
+                                    return stack.top == stack.size - 1;
+                                }
+                                
+                                void push( Stack *stack, int value) {
+                                    if (!is_full(*stack)) {
+                                        stack->items[++stack->top] = value;
+                                    } else {
+                                        printf("Stack overflow\n");
+                                    }
+                                }
+                                
+                                int pop( Stack *stack) {
+                                    if (!is_empty(*stack)) {
+                                        return stack->items[stack->top--];
+                                    } else {
+                                        printf("Stack underflow\n");
+                                        return -1;
+                                    }
+                                }
+                                
+                                int top( Stack stack) {
+                                    if (!is_empty(stack)) {
+                                        return stack.items[stack.top];
+                                    } else {
+                                        printf("Stack is empty\n");
+                                        return -1;
+                                    }
+                                }
+                                
+                                int main() {
+                                    Stack stack1;
+                                    initialize(&stack1, 5);
+                                
+                                
+                                    push(&stack1, 10);
+                                    push(&stack1, 20);
+                                    push(&stack1, 30);
+                                    push(&stack1, 40);
+                                    push(&stack1, 50);
+                                    push(&stack1, 60);
+                                
+                                    printf("Top element: %d\n", top(stack1));
+                                
+                                    printf("Pop element: %d\n", pop(&stack1));
+                                    printf("Pop element: %d\n", pop(&stack1));
+                                
+                                    printf("Top element: %d\n", top(stack1));
+                                
+                                    return 0;
+                                }
