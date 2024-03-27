@@ -6,9 +6,17 @@
 1. Khác nhau giữa macro và function
 2. Vùng nhớ trên RAM
 3. Static hoạt động như thế nào
-4. So sánh giữa struc và union
-5. 
-</details>
+4. So sánh giữa struct và union
+5. Con trỏ là gì, kích thước con trỏ, con trỏ hàm, void, NULL, poiter to poiter.
+   - Con trỏ là biến lưu địa chỉ của đối tượng khác khác.
+   - Kích thước con trỏ phụ thuộc vào kiến trúc của VXL.    VD: nếu VDK 8bit = 1 byte => kích thước con trỏ là 1 byte.
+                                                                nếu VDK 16bit = 2 byte => kích thước con trỏ là 2 byte.    32 bit là 4 byte.
+   - Con trỏ hàm là trỏ lưu địa chỉ của 1 hàm.
+   - Con trỏ void là con trỏ không kiểu dữ liệu nào cả.
+   - Null là ko trỏ tới vùng nhớ hay giá trị nào cả,
+   - ** là con trỏ trỏ tới 1 con trỏ khác.
+6. Biến Register và Volatile
+7. 
 <details><summary> LESSION 1: Compiler - Macro C</summary>
   - Macro là một cách để định nghĩa một biểu diễn hoặc mẫu mã được thay thế bằng một chuỗi hoặc một đoạn mã khác trước khi chương trình được biên dịch  (kích thước lớn, tốc độ nhanh).
   - Function là hàm có địa chỉ cố định, Khi được gọi thì con trỏ PC trỏ đến function đó để thực hiện nên (kích thước nhỏ nhưng tốc độ chậm).
@@ -18,6 +26,9 @@
   
 </details>
 <details><summary> LESSION 3: Point in C</summary>
+- Con trỏ là biến lưu địa chỉ của đối tượng khác khác.
+- Kích thước con trỏ phụ thuộc vào kiến trúc của VXL.    VD: nếu VDK 8bit = 1 byte => kích thước con trỏ là 1 byte.
+                                                                nếu VDK 16bit = 2 byte => kích thước con trỏ là 2 byte.    32 bit là 4 byte.  
 - Bản chất của mảng là địa chỉ.
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
 - khi khai báo kiểu dữ liệu cho biến con trỏ thì chỉ tham số truyền vào phải đúng KDL đã khai báo của nó. VD: int *ptr (thì biến con trỏ ptr chỉ nhận kiểu dữ liệu int)
@@ -131,11 +142,13 @@ Ví dụ nếu dùng biến static:
 - Dùng được trong chương trình, không cho bên ngoài dùng kể cả **EXTERN.**
 
 ### VOLATILE ###
+- Thông báo cho compiler ko được tối ưu biến này.
 - Volatile đại diện cho các biến có thể thay đổi bất thường mà không thông qua mã nguồn code.  VD: volatile int var; 
                                                                                                    int volatile var;
   
 ### REGISTER ###
-
+- là biến yêu cầu lưu nó vào thanh ghi trong PC.
+- Giúp tăng tốc độ thực thi chương trình.
 
 </details>
 <details><summary> LESSION 6: GOTO - setjmp</summary>
