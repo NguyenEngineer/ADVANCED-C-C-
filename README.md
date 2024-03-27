@@ -1,6 +1,6 @@
 
 # ADVANCE C
-</details>
+
 <details><summary> Question Interview C</summary>
 
 1. Khác nhau giữa macro và function
