@@ -16,7 +16,8 @@
    - Null là ko trỏ tới vùng nhớ hay giá trị nào cả,
    - ** là con trỏ trỏ tới 1 con trỏ khác.
 6. Biến Register và Volatile
-7. 
+
+</details>
 <details><summary> LESSION 1: Compiler - Macro C</summary>
   - Macro là một cách để định nghĩa một biểu diễn hoặc mẫu mã được thay thế bằng một chuỗi hoặc một đoạn mã khác trước khi chương trình được biên dịch  (kích thước lớn, tốc độ nhanh).
   - Function là hàm có địa chỉ cố định, Khi được gọi thì con trỏ PC trỏ đến function đó để thực hiện nên (kích thước nhỏ nhưng tốc độ chậm).
