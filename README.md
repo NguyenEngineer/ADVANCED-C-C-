@@ -1,9 +1,17 @@
 
 # ADVANCE C
+</details>
+<details><summary> Question Interview C</summary>
 
+1. Khác nhau giữa macro và function
+2. Vùng nhớ trên RAM
+3. Static hoạt động như thế nào
+4. So sánh giữa struc và union
+5. 
 </details>
 <details><summary> LESSION 1: Compiler - Macro C</summary>
-  
+  - Macro là một cách để định nghĩa một biểu diễn hoặc mẫu mã được thay thế bằng một chuỗi hoặc một đoạn mã khác trước khi chương trình được biên dịch  (kích thước lớn, tốc độ nhanh).
+  - Function là hàm có địa chỉ cố định, Khi được gọi thì con trỏ PC trỏ đến function đó để thực hiện nên (kích thước nhỏ nhưng tốc độ chậm).
 </details>
 <details><summary> LESSION 2: STDARG - assert.h</summary>
 
@@ -106,6 +114,7 @@
 - Khai báo thôi chứ không định nghĩa, biến được kêu ra phải là biến toàn cục của file khác.
 ### STATIC ###
 #### Static với biến cục bộ #### 
+- Chỉ có giá trị trong hàm nhưng khi ra khỏi hàm nó ko bị mất đi.
 - Một biến được khai báo(định nghĩa hay không định nghĩa) thì nó sẽ bị thu hồi vùng nhớ sau khi ra hỏi hàm. Muốn giữ giá trị của nó không bị mất khi ra khỏi hàm thì dùng từ khóa **Static**.
 
 Ví dụ nếu không dùng biến static:
@@ -118,7 +127,8 @@ Ví dụ nếu dùng biến static:
 ![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/8ba48217-1993-4adc-b449-0c11dfe0608d)            ![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/103c348a-60ff-48bd-a61a-4185ca616ded)
 
 #### Static với biến toàn cục và hàm: ####
-- Dùng được trong chương trình không cho bên ngoài dùng kể cả **EXTERN.**
+- Chỉ có giá trị trong file chứa nó.
+- Dùng được trong chương trình, không cho bên ngoài dùng kể cả **EXTERN.**
 
 ### VOLATILE ###
 - Volatile đại diện cho các biến có thể thay đổi bất thường mà không thông qua mã nguồn code.  VD: volatile int var; 
@@ -278,6 +288,16 @@ Ví dụ nếu dùng biến static:
              uint32_t c;  //   |1|1|1|1|  khi được gọi thì biến c (4 byte) chỉ dùng 4 ô. ADD |0x1|0x2|0x3|0x4|
              };                 // Tổng kích thước sẽ là 4 byte.
     
+    >- VD:
+
+            Union Example {    // Union này sẽ lấy kiểu dữ liệu có byte lớn nhất (ở đây là int có 4 byte) 
+             uint8_t a[9];    //   có 4 ô byte được cấp phát và kiểu dữ liệu biến a này là 2 byte nên tổng biến a này sử dụng 12 byte
+                              //            |1|1|1|1|                         |1|1|1|1|                         |1|0|0|0|
+                              //  | a[1] | a[2] | a[3] | a[4] |     | a[5] | a[6] | a[7] | a[8] |      | a[9] | 0 | 0 | 0 |
+    
+             uint16_t b[3];  //   Tổng biến b này sử dụng là  8 byte        | b[1] | b[1] | b[2] | b[2] |         | b[3] | b[3] | 0 | 0 |
+             uint32_t c[3];  //   Tổng biến c này sử dụng là  12 byte        | c[1] | c[1] | c[1] | c[1] |       | c[2] | c[2] | c[2] | c[2] |     | c[3] | c[3] | c[3] | c[3] |
+             };                  // Tổng kích thước Union sẽ là 12 byte.      
  ### Dùng kết hợp Union && Struct ###
  - Dùng để chia nhỏ dữ liệu ra để dễ xử lý hơn.
   >- Ví dụ:
