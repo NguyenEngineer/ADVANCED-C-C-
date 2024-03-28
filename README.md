@@ -527,12 +527,27 @@ Queue:
 - Thuật toán tìm kiếm nhị phân:    ---> nếu mảng nhỏ thì tìm kiếm các giá trị phần tử trong mảng rất dễ dàng.
                                    --->  nều mảng tô thì ko thể tìm kiếm như bình thường được nên ta phải dùng thuật toán tìm kiếm nhị phân.
 - Cách triển khai:
-                  - Mảng luôn phải được sắp xếp treo giá trị từ bé đến lớn.
-                  - Xác định giá trị lớn nhất và nhỏ nhất (đầu mảng và cuối mảng).
-                  - So sánh giá trị cần tìm với giá trị ở giữa mảng ( mid = (đầu + cuối) / 2).
-                  - Nếu giá trị cần tìm lớn hơn giá trị mid thì chỉ lấy từ (vùng mid --> cuối) để xử lý.
-                  - Nếu giá trị cần tìm nhỏ hơn giá trị mid thì chỉ lấy từ (vùng mid --> đầu) để xử lý.       (nếu = mid thì đúng là thoát)                         
-                  - Thực hiện đến khi tìm đước giá trị bằng với giá trị cần tìm.
+   - Mảng luôn phải được sắp xếp treo giá trị từ bé đến lớn.
+   - Xác định giá trị lớn nhất và nhỏ nhất (đầu mảng và cuối mảng).
+   - So sánh giá trị cần tìm với giá trị ở giữa mảng ( mid = (đầu + cuối) / 2).
+   - Nếu giá trị cần tìm lớn hơn giá trị mid thì chỉ lấy từ (vùng mid --> cuối) để xử lý.
+   - Nếu giá trị cần tìm nhỏ hơn giá trị mid thì chỉ lấy từ (vùng mid --> đầu) để xử lý.       (nếu = mid thì đúng là thoát)                         
+   - Thực hiện đến khi tìm đước giá trị bằng với giá trị cần tìm.
+ 
+  VD:
   
-  ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8ccf2e7e-c803-4a84-ac08-bfd68c74fbb4)![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/360738e9-7172-46b5-a306-4b64541368a1)
-
+                 int binarySearch(int* arr, int l, int r, int x)
+               {
+                if (r >= l)
+                {
+                    int mid = (r + l) / 2;
+                    if (arr[mid] == x)  return mid;
+                    if (arr[mid] > x) return binarySearch(arr, l, mid - 1, x);
+                    return binarySearch(arr, mid + 1, r, x);
+                }
+  
+  ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8ccf2e7e-c803-4a84-ac08-bfd68c74fbb4)
+  ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/360738e9-7172-46b5-a306-4b64541368a1)
+  ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/b209cf56-7066-4344-b532-03c93637bbb9)
+  
+## File operations
