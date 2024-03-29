@@ -551,3 +551,22 @@ Queue:
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/b209cf56-7066-4344-b532-03c93637bbb9)
   
 ## File operations
+- Là một loại file văn bản được sử dụng để lưu trữ và truyền tải dữ liệu có cấu trúc dưới dạng bảng, trong đó các dữ liệu của các cột được phân tách bằng dấu phẩy (,) hoặc một ký tự ngăn cách khác.
+VD:
+
+            Họ và tên, Tuổi, Địa chỉ, Số điện thoại
+            John Doe, 30, 123 Main St, 555-1234
+            Jane Smith, 25, 456 Oak St, 555-5678
+            Bob Johnson, 40, 789 Pine St, 555-8765
+- Để mở 1 file thì dùng lệnh:       FILE *file = fopen(const char *file_name, const char *access_mode);
+- Các chế độ:
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/4d7bf42b-9efb-4bfe-a011-687356abf0c5)
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/2c2bbd30-28e0-4734-a81b-270ab7fd7793)
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/56c723a9-7bbd-4ef2-9c0e-bd383d9d510c)
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/d80148f5-7468-40b9-9855-51788ba67320)
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/c2bf2f7a-5a2d-404c-ac4c-c09c22944b17)
+         ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/5e140080-b67d-48c0-96de-2089c3250787)
+
+
+
+
