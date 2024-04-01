@@ -569,9 +569,27 @@ VD:
 
 
 # ADVANCE C++
-<details>
+
 <details><summary> Lesson 1: Class</summary>
 - là 1 lớp hoặc là một cấu trúc dữ liệu tự định nghĩa có thể chứa dữ liệu và các hàm thành viên liên quan. 
-- Trong 1 class có :  thuộc tính (property), phương thức khởi tạo (constructor).
+- Trong 1 class có :  thuộc tính (property), phương thức khởi tạo (constructor), hàm hủy (destructor).
 - phương thức khởi tạo (constructor) là một method sẽ được tự động gọi khi khởi tạo object.
-
+- Destructor trong C++ là một method sẽ được tự động gọi khi object được giải phóng. 
+- Toán tử truy cập < :: >.
+VD: 
+   
+                  public:
+                   double chieuDai;
+                   double chieuRong;
+                   
+                   static int var;
+               };
+                  int HinhChuNhat::var;  // toán tử truy cập
+                  
+- Static sử dụng trong class: là biến dùng chung, một property trong class được khai báo với từ khóa static, thì tất cả các object sẽ dùng chung địa chỉ của property này.
+- 	Khi một method trong class được khai báo với từ khóa static:
+         Method này độc lập với bất kỳ đối tượng nào của lớp.
+         Method này có thể được gọi ngay cả khi không có đối tượng nào của class tồn tại.
+         Method này có thể được truy cập bằng cách sử dụng tên class thông qua toán tử :: .
+         Method này có thể truy cập các static property và các static method bên trong hoặc bên ngoài class.
+         Method có phạm vi bên trong class và không thể truy cập con trỏ đối tượng hiện tại.
