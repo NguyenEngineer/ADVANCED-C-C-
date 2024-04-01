@@ -23,7 +23,20 @@
   - Function là hàm có địa chỉ cố định, Khi được gọi thì con trỏ PC trỏ đến function đó để thực hiện nên (kích thước nhỏ nhưng tốc độ chậm).
 </details>
 <details><summary> LESSION 2: STDARG - assert.h</summary>
+   
+- Thư viện Stdarg cung cấp các phương thức làm việc với các input parameter không xác định. Ví dụ điển hình là *scanf*,*printf*
+- Các tham số:
+   + va_list:là một kiểu dữ liệu để đại diện cho danh sách các đối số biến đổi.
+   + va_start: Bắt đầu một danh sách đối số biến đổi. Nó cần được gọi trước khi truy cập các đối số biến đổi đầu tiên.
+   + va_arg: Truy cập một đối số trong danh sách. Hàm này nhận một đối số của kiểu được xác định bởi tham số thứ .
+   + va_end: Kết thúc việc sử dụng danh sách đối số biến đổi. Nó cần được gọi trước khi kết thúc hàm.
 
+- Thư viện Assert
+   + Cung cấp macro assert. 
+   + Macro này được sử dụng để kiểm tra một điều kiện. 
+   + Nếu điều kiện đúng (true), không có gì xảy ra và chương trình tiếp tục thực thi.
+   + Nếu điều kiện sai (false), chương trình dừng lại và thông báo một thông điệp lỗi.
+   + Dùng trong debug, dùng #define NDEBUG để tắt debug
   
 </details>
 <details><summary> LESSION 3: Point in C</summary>
@@ -357,7 +370,31 @@ Ví dụ nếu dùng biến static:
   
 </details>
 <details><summary> LESSION 10: Linker List</summary>
-  
+  ![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/0153edae-9d15-4b48-be4c-f4ba1b1950a4)
+
+- Mình có một mảng này, muốn xóa 1 phần tử bất kì trong chuỗi ta làm lần lượt các bước: cho giá trị tại vị trí đó là *null* xong nhích giá trị hiện tại lên, giá trị phần tử cuối cùng mình reallocate để chuỗi còn (n-1) phần tử.
+  **=> Đặt ra vấn đề:Nếu như một mảng có 10000 phần tử chả nhẻ xóa ở vị trí bất kì mình dịch chuyển 9999 vòng lặp như thế sao?**
+Hoặc ví dụ nếu mình muốn thêm một phần tử thì các bước : cấp phát thêm ở vị trí cuối mảng (null), sau đó xê dịch lần lượt ra.
+
+*=> Việc xóa hay chèn 1 phần tử rất là mất thời gian* => người ta đưa ra **linked list(mảng nhân tạo)** 
+
+Linked List là một cấu trúc dữ liệu trong lập trình máy tính dùng để tổ chức và lưu trữ dữ liệu. Một linked list bao gồm một chuỗi các nút (node), mỗi nút chứa một giá trị dữ liệu hoặc một con trỏ(pointer) tới nút tiếp theo trong chuỗi. Note cuối thì con trỏ NULL.
+![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/4eb21968-3ec1-47fb-add8-267b0711b462)
+
+Muốn thêm một node vào cuối một mảng thì mình tạo ra một note trước, giá trị của con trỏ là null, sau đó mình lưu địa chỉ của nó vào pointer của note trước nó.
+
+![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/1ef71755-233e-46dd-bc8a-60fbfc47ba5a)
+
+*Ví dụ:* thêm node vào vị trí thứ 2 của mảng: ta chỉ cần thay đổi pointer của nút cần thêm vào là dịa chỉ của phần từ tiếp theo , và thay đổi pointer của nút trước đó thành địa chỉ của nút mình muốn thêm vào
+
+![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/ecddb42e-c932-490e-b0a5-d92d97b9e8b5)
+
+Tương tự ví dụ:
+
+![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/46abea42-aac1-4728-8614-21e1238296eb)
+
+=>Muốn xóa một phần tử tại vị trí bất kì ta chỉ cần gì note của phần tử đó vào node của phần tử đứng trước đó(tương đương với ghi địa chỉ của phần tử tiếp theo vào vị trí của phần tử đứng trước đó vì note của phần tử đó lưu địa chỉ của phần tử đứng sau)
+
 </details>
 <details><summary> LESSION 11: Stack and Queue </summary>
   
