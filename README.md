@@ -567,8 +567,7 @@ VD:
          ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/c2bf2f7a-5a2d-404c-ac4c-c09c22944b17)
          ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/5e140080-b67d-48c0-96de-2089c3250787)
 
-
-## ADVANCE C++
+# ADVANCE C++
 
 <details><summary> Lesson 1: Class</summary>
 - là 1 lớp hoặc là một cấu trúc dữ liệu tự định nghĩa có thể chứa dữ liệu và các hàm thành viên liên quan. 
