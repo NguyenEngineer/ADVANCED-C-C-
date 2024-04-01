@@ -370,7 +370,8 @@ Ví dụ nếu dùng biến static:
   
 </details>
 <details><summary> LESSION 10: Linker List</summary>
-  ![image](https://github.com/NguyenNgocQuyen29/AdvanceC/assets/124705679/0153edae-9d15-4b48-be4c-f4ba1b1950a4)
+
+![image](https://github.com/NguyenEngineer/AdvanceC/assets/124705679/0153edae-9d15-4b48-be4c-f4ba1b1950a4)
 
 - Mình có một mảng này, muốn xóa 1 phần tử bất kì trong chuỗi ta làm lần lượt các bước: cho giá trị tại vị trí đó là *null* xong nhích giá trị hiện tại lên, giá trị phần tử cuối cùng mình reallocate để chuỗi còn (n-1) phần tử.
   **=> Đặt ra vấn đề:Nếu như một mảng có 10000 phần tử chả nhẻ xóa ở vị trí bất kì mình dịch chuyển 9999 vòng lặp như thế sao?**
