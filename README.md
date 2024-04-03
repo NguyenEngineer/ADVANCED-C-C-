@@ -1,6 +1,8 @@
 
 # ADVANCE C
 
+   https://hala.edu.vn/c-co-ban/cac_quy_tac_ve_dat_ten_theo_tieu_chuan_autosar_c_coding_guidelines/
+   
 <details><summary> Question Interview C</summary>
 
 1. Khác nhau giữa macro và function
@@ -633,3 +635,5 @@ VD:
          Method này có thể được truy cập bằng cách sử dụng tên class thông qua toán tử :: .
          Method này có thể truy cập các static property và các static method bên trong hoặc bên ngoài class.
          Method có phạm vi bên trong class và không thể truy cập con trỏ đối tượng hiện tại.
+  	
+<details><summary> Lesson 2: Class </summary>
