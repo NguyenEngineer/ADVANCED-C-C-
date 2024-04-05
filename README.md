@@ -637,7 +637,8 @@ VD:
          Method có phạm vi bên trong class và không thể truy cập con trỏ đối tượng hiện tại.
   	
 <details><summary> Lesson 2: OOP </summary>
-   ##Encapsulation
+   
+## Encapsulation
 - Encapsulation (tính đóng gói) là dùng để ẩn đi các property "bảo mật" khỏi người dùng. Khai báo các property ở quyền private (không thể truy cập trực tiếp với các property này).
 - Để truy cập được vào các property đã được bảo mật thì ta phải khao báo nó thông qua các method ở vùng public.
 VD: 
@@ -671,7 +672,220 @@ VD:
                          }               
                      };
                      
-##Inheritance (tính kế thừa)                
+## Inheritance (tính kế thừa)                
 - Inheritance (tính kế thừa) là class sẽ được kế thừa các property và methor của class cha.
 - Để được kế thừa thì phải thông qua ký tự " : "
 - Có 3 kiểu kế thừa ( private, protected, public)
+VD:
+
+                  class Person
+                  {
+                  protected:
+                    string Name;
+                    int Age;
+                    string Home_Address;
+                  
+                  public:
+                    string getName()
+                    {
+                      return Name;
+                    }
+                    void setName(string name)
+                    {
+                      Name = name;
+                    }
+                  
+                    int getAge()
+                    {
+                      return Age;
+                    }
+                    void setAge(int age)
+                    {
+                      Age = age;
+                    }
+                  
+                    string getAddress()
+                    {
+                      return Home_Address;
+                    }
+                    void setAddress(string address)
+                    {
+                      Home_Address = address;
+                    }
+                  
+                    void displayInfo()
+                    {
+                      cout << "Name: " << Name << endl;
+                      cout << "Age: " << Age << endl;
+                      cout << "Address: " << Home_Address << endl;
+                    }};
+                  
+                  class Student : public Person
+                  {
+                  private:
+                    string School_Name;
+                    double GPA;
+                    int StudentID;
+                  
+                  public:
+                    Student()
+                    {
+                      static int id = 1000;
+                      StudentID = id;
+                      id++;
+                    }
+                  
+                    string getSchoolName()
+                    {
+                      return School_Name;
+                    }
+                    void setSchoolName(string school_name)
+                    {
+                      School_Name = school_name;
+                    }
+                  
+                    double getGPA()
+                    {
+                      return GPA;
+                    }
+                    void setGPA(double gpa)
+                    {
+                      GPA = gpa;
+                    }
+                  
+                    int getID()
+                    {
+                      return StudentID;
+                    }
+                  
+                    void displayInfo() // overriding
+                    {
+                      cout << "Name: " << Name << endl;
+                      cout << "Age: " << Age << endl;
+                      cout << "Address: " << Home_Address << endl;
+                      cout << "School name: " << School_Name << endl;
+                      cout << "GPA: " << GPA << endl;
+                    }
+                  };
+- Sự khác nhau giữa private và protected:
+   + Giống nhau: Các property của 2 quyền truy cập đều được ẩn khỏi người dùng và chỉ đươc truy cập thông qua các method ở vùng public
+   + Khác nhau: Khi được kế thừa thì chỉ có Protected và public được kế thừa, còn privater không được kế thừa.
+ 
+## Polymorphism
+- Polymorphism (tính đa hình) là cách dùng những method được kế thừa để thực hiện các tác vụ khác nhau. Cùng là 1 method nhưng có nhiều kiểu dùng khác nhau
+- (Function overriding) là lớp con ghi đè được lên lớp cha thông qua phương thức
+  
+- (Function overloading) cung cấp nhiều định nghĩa cho 1 function bằng cách thay đổi số lượng input parameter, kiểu dữ liệu của input parameter.
+- Từ khóa virtual là từ khóa giúp cho lớp con ghi đề được lên lớp cha khi kế thừa
+VD:
+
+         class Person
+         {
+         protected:
+           string Name;
+           int Age;
+           string Home_Address;
+         
+         public:
+           virtual string test()
+           {
+             return "Hello person";
+           }
+         
+           void displayInfo()
+           {
+             cout << test() << endl;
+           }  
+         };
+         
+         class Student : public Person
+         {
+         private:
+           string School_Name;
+           double GPA;
+           int StudentID;
+         
+         public:
+           string test()
+           {
+             return "Hello student";
+           }
+         };
+
+## Abstract
+- Abstract (tính trừ tượng) là việc ẩn đi các chi tiết cụ thể của một đối tượng và chỉ hiển thị những gì cần thiết để sử dụng đối tượng đó.
+class GiaiPhuongTrinh
+VD:
+
+            {
+                private:
+                    double a;
+                    double b;
+                    double c;
+                    double x1;
+                    double x2;
+                    double delta;
+                    void tinhNghiem()    // ẩn đi hàm tính ko cho người dùng thấy
+                    {
+                        delta = b*b - 4*a*c;
+                        if (delta < 0)
+                        {
+                            delta = -1;
+                        }
+                        else if (delta == 0)
+                        {
+                            x1 = x2 = -b/ (2*a);
+                        }
+                        else if (delta > 0)
+                        {
+                            x1 = (-b + sqrt(delta))/(2*a);
+                            x2 = (-b - sqrt(delta))/(2*a);
+                        }
+                    }
+                    
+                public:
+            
+                    void enterNumber(double num_a, double num_b, double num_c);
+                    void printResult();
+            
+            };
+            
+            void GiaiPhuongTrinh::enterNumber(double num_a, double num_b, double num_c)
+            {
+                a = num_a;
+                b = num_b;
+                c = num_c;
+            }
+            
+            void GiaiPhuongTrinh::printResult()
+            {
+                tinhNghiem();
+                if (delta == -1)
+                {
+                    cout << "PT vo nghiem" << endl;
+                }
+                else if (delta == 0)
+                {
+                    cout << "PT co nghiem chung: " << x1 << endl;
+                }
+                else if (delta > 0)
+                {
+                    cout << "PT co 2 nghiem: \n";
+                    cout << "x1: " << x1 << endl;
+                    cout << "x2: " << x2 << endl;
+                }
+                
+                
+            }
+            
+            
+            int main()
+            {
+              GiaiPhuongTrinh phuongtrinh1;
+              phuongtrinh1.enterNumber(1,5,4);
+              phuongtrinh1.printResult();
+            
+              return 0;
+            }
+            
+
