@@ -635,7 +635,8 @@ VD:
          Method này có thể được truy cập bằng cách sử dụng tên class thông qua toán tử :: .
          Method này có thể truy cập các static property và các static method bên trong hoặc bên ngoài class.
          Method có phạm vi bên trong class và không thể truy cập con trỏ đối tượng hiện tại.
-  	
+
+</details>   
 <details><summary> Lesson 2: OOP </summary>
    
 ## Encapsulation
