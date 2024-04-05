@@ -621,7 +621,7 @@ VD:
 VD: 
    
                   public:
-                   double chieuDai;
+                   double chieuDai;      //phương thức khởi tạo
                    double chieuRong;
                    
                    static int var;
@@ -636,4 +636,42 @@ VD:
          Method này có thể truy cập các static property và các static method bên trong hoặc bên ngoài class.
          Method có phạm vi bên trong class và không thể truy cập con trỏ đối tượng hiện tại.
   	
-<details><summary> Lesson 2: Class </summary>
+<details><summary> Lesson 2: OOP </summary>
+   ##Encapsulation
+- Encapsulation (tính đóng gói) là dùng để ẩn đi các property "bảo mật" khỏi người dùng. Khai báo các property ở quyền private (không thể truy cập trực tiếp với các property này).
+- Để truy cập được vào các property đã được bảo mật thì ta phải khao báo nó thông qua các method ở vùng public.
+VD: 
+
+                     class Student
+                     {
+                         private:
+                             string Name;
+                             double GPA;
+                             int StudentID;
+                         public:
+                         Student(string name);
+                     
+                         string getName()
+                         {
+                             return Name;
+                         }
+                     
+                         void setGPA(double gpa)
+                         {
+                             GPA = gpa;
+                         }
+                         double getGPA()
+                         {
+                             return GPA;
+                         }
+                     
+                         int getID()
+                         {
+                             return StudentID;
+                         }               
+                     };
+                     
+##Inheritance (tính kế thừa)                
+- Inheritance (tính kế thừa) là class sẽ được kế thừa các property và methor của class cha.
+- Để được kế thừa thì phải thông qua ký tự " : "
+- Có 3 kiểu kế thừa ( private, protected, public)
