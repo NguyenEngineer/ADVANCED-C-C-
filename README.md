@@ -888,5 +888,56 @@ VD:
             
               return 0;
             }
-            
+  
+</details>
+<details><summary> LESSION 3: Standard template library C</summary>       
+
+
+</details>
+<details><summary> LESSION 4: Template && Generic C</summary>    
+
+## Function Template in C
+- Function templates là một tính năng giúp viết các function hoặc class chung có thể được sử dụng cho nhiều kiểu dữ liệu khác nhau.
+VD:
+
+      template <typename T>
+      T myFunction(T a, T b) {
+          return a + b;
+      }
+      int result1 = myFunction(5, 10);       // Tự động suy luận T là int
+      double result2 = myFunction(3.14, 2.71);  // Tự động suy luận T là double
+  
+## Function Template in Class
+- Tương tự như function templates, nhưng được áp dụng cho class thay vì function.
+- Class templates cho phép bạn viết một lớp chung mà có thể được sử dụng với nhiều kiểu dữ liệu khác nhau.
+VD:
+
+         template <typename T>                                    // Khai báo ra 1 template tên T
+         class MyContainer {
+         private:
+             T element;                                          // khai báo tên element với kiểu dữ liệu là T (kdl ko biết trc)
+         
+         public:
+             MyContainer(T val) : element(val) {}               // đây là cách code nhanh gọn giống kiểu gán giá trị   VD: MyContainer(T val) {  element = val; }
+         
+             T getValue() const {
+                 return element;
+             }
+         };
+         int main()
+         {
+             MyContainer<int> intContainer(42);                  // khi sử dụng thì phải chỉ định cụ thể KDL của nó 
+             MyContainer<double> doubleContainer(3.14);
+             MyContainer<string> stringContainer("Trung");
+         
+             int intValue = intContainer.getValue();
+             double doubleValue = doubleContainer.getValue();
+             string stringValue = stringContainer.getValue();
+         
+             cout << "int value: " << intValue << endl;
+             cout << "double value: " << doubleValue << endl;
+             cout << "string value: " << stringValue << endl;
+         
+             return 0;
+         }
 
