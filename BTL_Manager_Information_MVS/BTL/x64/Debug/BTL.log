@@ -1,0 +1,61 @@
+﻿  Function.c
+D:\Micro VS\BTL\BTL\Function.c(37,53): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  D:\Micro VS\BTL\BTL\Function.c(37,53):
+  this argument is used as a buffer size
+  
+D:\Micro VS\BTL\BTL\Function.c(38,55): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  D:\Micro VS\BTL\BTL\Function.c(38,55):
+  this argument is used as a buffer size
+  
+D:\Micro VS\BTL\BTL\Function.c(39,55): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  D:\Micro VS\BTL\BTL\Function.c(39,55):
+  this argument is used as a buffer size
+  
+D:\Micro VS\BTL\BTL\Function.c(40,53): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  D:\Micro VS\BTL\BTL\Function.c(40,53):
+  this argument is used as a buffer size
+  
+D:\Micro VS\BTL\BTL\Function.c(54,12): warning C4566: character represented by universal-character-name '\u1EE7' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(55,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(56,12): warning C4566: character represented by universal-character-name '\u1EE7' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(56,12): warning C4566: character represented by universal-character-name '\u01B0' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(57,12): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(57,12): warning C4566: character represented by universal-character-name '\u1ED1' cannot be represented in the current code page (1252)
+D:\Micro VS\BTL\BTL\Function.c(121,49): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'char **'
+  D:\Micro VS\BTL\BTL\Function.c(121,49):
+  this argument is used by a conversion specifier
+  
+D:\Micro VS\BTL\BTL\Function.c(121,49): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+  D:\Micro VS\BTL\BTL\Function.c(121,49):
+  this argument is used as a buffer size
+  
+D:\Micro VS\BTL\BTL\Function.c(147,18): warning C4474: 'scanf_s' : too many arguments passed for format string
+  D:\Micro VS\BTL\BTL\Function.c(147,18):
+  placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  
+D:\Micro VS\BTL\BTL\Function.c(154,22): warning C4474: 'scanf_s' : too many arguments passed for format string
+  D:\Micro VS\BTL\BTL\Function.c(154,22):
+  placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  
+D:\Micro VS\BTL\BTL\Function.c(155,27): warning C4047: 'function': 'char *' differs in levels of indirection from 'char'
+D:\Micro VS\BTL\BTL\Function.c(155,27): warning C4024: 'searchUID': different types for formal and actual parameter 2
+D:\Micro VS\BTL\BTL\Function.c(158,22): warning C4474: 'scanf_s' : too many arguments passed for format string
+  D:\Micro VS\BTL\BTL\Function.c(158,22):
+  placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  
+D:\Micro VS\BTL\BTL\Function.c(159,37): warning C4047: 'function': 'char *' differs in levels of indirection from 'char'
+D:\Micro VS\BTL\BTL\Function.c(159,37): warning C4024: 'searchLicensePlate': different types for formal and actual parameter 2
+D:\Micro VS\BTL\BTL\Function.c(241,15): warning C4013: 'strtok' undefined; assuming extern returning int
+D:\Micro VS\BTL\BTL\Function.c(241,13): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+D:\Micro VS\BTL\BTL\Function.c(243,9): warning C4013: 'memset' undefined; assuming extern returning int
+D:\Micro VS\BTL\BTL\Function.c(249,17): warning C4013: 'strcpy' undefined; assuming extern returning int
+D:\Micro VS\BTL\BTL\Function.c(262,17): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+D:\Micro VS\BTL\BTL\Function.c(264,22): warning C4047: 'function': 'MemberNode **' differs in levels of indirection from 'MemberNode ***'
+D:\Micro VS\BTL\BTL\Function.c(264,22): warning C4024: 'createMember': different types for formal and actual parameter 1
+D:\Micro VS\BTL\BTL\Function.c(277,23): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'MemberData'
+D:\Micro VS\BTL\BTL\Function.c(274,17): warning C4047: 'initializing': 'MemberNode *' differs in levels of indirection from 'MemberNode **'
+  main.c
+D:\Micro VS\BTL\BTL\main.c(55,26): warning C4047: 'function': 'MemberNode *' differs in levels of indirection from 'MemberNode **'
+D:\Micro VS\BTL\BTL\main.c(55,26): warning C4024: 'searchMEMBER': different types for formal and actual parameter 1
+  Generating Code...
+  BTL.vcxproj -> D:\Micro VS\BTL\x64\Debug\BTL.exe
