@@ -39,15 +39,22 @@
    + Nếu điều kiện đúng (true), không có gì xảy ra và chương trình tiếp tục thực thi.
    + Nếu điều kiện sai (false), chương trình dừng lại và thông báo một thông điệp lỗi.
    + Dùng trong debug, dùng #define NDEBUG để tắt debug
+
   
 </details>
 <details><summary> LESSION 3: Point in C</summary>
 - Con trỏ là biến lưu địa chỉ của đối tượng khác khác.
-- Kích thước con trỏ phụ thuộc vào kiến trúc của VXL.    VD: nếu VDK 8bit = 1 byte => kích thước con trỏ là 1 byte.
-                                                                nếu VDK 16bit = 2 byte => kích thước con trỏ là 2 byte.    32 bit là 4 byte.  
+   
+- Kích thước con trỏ phụ thuộc vào kiến trúc của VXL.
+
+        VD:   nếu VDK 8bit = 1 byte => kích thước con trỏ là 1 byte.
+              nếu VDK 16bit = 2 byte => kích thước con trỏ là 2 byte.    32 bit là 4 byte.  
 - Bản chất của mảng là địa chỉ.
+  
 - Biến bình thường là lưu giá trị. Còn biến con trỏ là lưu địa chỉ.  VD: int *prt
+
 - khi khai báo kiểu dữ liệu cho biến con trỏ thì chỉ tham số truyền vào phải đúng KDL đã khai báo của nó. VD: int *ptr (thì biến con trỏ ptr chỉ nhận kiểu dữ liệu int)
+
 - Con trỏ hàm là
                             VD:
 
