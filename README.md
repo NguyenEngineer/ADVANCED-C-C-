@@ -948,3 +948,6 @@ VD:
              return 0;
          }
 
+</details>
+<details><summary> LESSION : Smart Poiter</summary>
+   
