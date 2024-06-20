@@ -975,3 +975,7 @@ Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web,
             + Sử dụng Function Object
             + Sử dụng Function Pointer
             + Sử dụng Lambda Function
+- Các vấn đề thường gặp trong đa luồng:
+           + Data Race: đồng bộ hóa dữ liệu.
+           + DeadLock:
+           + Race Condition: 
