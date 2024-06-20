@@ -970,3 +970,8 @@ Ex: Ta có thể vừa nghe nhạc, vừa lướt web cùng một lúc. Processe
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8e1385d9-53bd-442d-857c-d381af08782c)
 
 Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web, vừa download file cùng một thời điểm. Ở đây, ta nhận thấy lướt web là một thread và việc download là một thread khác.
+- Đầu tiên ta phải include <thread>
+- Một thread có thể được create bằng nhiều cách khách nhau:
+            + Sử dụng Function Object
+            + Sử dụng Function Pointer
+            + Sử dụng Lambda Function
