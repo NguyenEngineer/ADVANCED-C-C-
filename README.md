@@ -981,14 +981,20 @@ Exam: Ta có thể vừa nghe nhạc, vừa lướt web cùng một lúc. Proces
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8e1385d9-53bd-442d-857c-d381af08782c)
 
 Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web, vừa download file cùng một thời điểm. Ở đây, ta nhận thấy lướt web là một thread và việc download là một thread khác.
+** Cú pháp: thread _NAME_ (_NAME_FUNCTION_)
+            VD: thread thread_1(task_1);
+            
 - Đầu tiên ta phải include <thread>
+
 - Một thread có thể được create bằng nhiều cách khách nhau:
             + Sử dụng Function Object
             + Sử dụng Function Pointer
             + Sử dụng Lambda Function
+  
 - Các vấn đề thường gặp trong đa luồng:
            + Data Race: đồng bộ hóa dữ liệu.
            + DeadLock:
-           + Race Condition: 
+           + Race Condition:
+  
 - Luồng có 2 loại: (đồng bộ và bất dồng bộ)
   
