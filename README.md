@@ -955,17 +955,17 @@ VD:
 </details>
 <details><summary> LESSION 6: Mutithreading </summary>
 ## Process (tiến trình)
-- Trong process based multitasking các tiến trình(process) có thể chạy cùng lúc.
+- Là để chỉ 1 chương trình khi dang chạy trên 1 hệ thống hoặc công việc chạy trên máy tính.
+   
+- Trong tiến trình (process) có thể bao gồm 1 hoặc nhiều thread khác nhau thực hiện công việc.
 
-- Trong process based multitasking các tiến trình(process) được coi là đơn vị tính nhỏ nhất.
+- Bản chất VDK là 1 tiến trình và mỗi process là 1 con VDK khác nhau.
 
 - Process based multitasking tiêu tốn nhiều tài nguyên hơn.
 
-- Bản chất VDK là 1 tiến trình
-
 - Process cần phải cấp phát không gian địa chỉ (address space) cho chính nó.
 
-Exam: Ta có thể vừa nghe nhạc, vừa lướt web cùng một lúc. Processes trong trường hợp này chính là chương trình nghe nhạc (music player) và trình duyệt web(browser).
+Exam: Trong 1 app ứng dụng ta có thể làm nhiều việc như đọc thông báo, nhắn tin, gọi điện, .... Hoặc là trên máy tính ta chạy nhiều app khác nhau như chrom, word,..
 
 ## Thread (luồng)
 - Trong thread based multitasking các thread có thể chạy cùng lúc
