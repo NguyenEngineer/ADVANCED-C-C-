@@ -968,15 +968,17 @@ VD:
 Exam: Trong 1 app ứng dụng ta có thể làm nhiều việc như đọc thông báo, nhắn tin, gọi điện, .... Hoặc là trên máy tính ta chạy nhiều app khác nhau như chrom, word,..
 
 ## Thread (luồng)
-- Trong thread based multitasking các thread có thể chạy cùng lúc
-
-- Trong thread based multitasking thì thread được coi là đơn vị tính nhỏ nhất.
+- Trong thread nằm trong 1 process. Có 1 hoặc nhiều thread chạy cùng lúc. Mỗi thread chạy 1 công việc khác nhau
 
 - Bản chất luồng là nó chạy 1 cách tuần tự (nhìn như chạy song song nhưng là tuần tự).
 
-- Thread based multitasking tiêu tốn ít tài nguyên hơn so với process based multitasking.
+- Các thread trong cùng 1 process chia sẽ với nhau cùng 1 vùng nhớ và các tài nguyên khác của process (biến toàn cục và cục bộ).
+
+- Thread tiêu tốn ít tài nguyên hơn so với process.
 
 - Các thread chia sẻ không gian địa chỉ (address space) với nhau.
+
+- Trong thread based multitasking thì thread được coi là đơn vị tính nhỏ nhất.
 
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8e1385d9-53bd-442d-857c-d381af08782c)
 
