@@ -956,17 +956,28 @@ VD:
 <details><summary> LESSION 6: Mutithreading </summary>
 ## Process (tiến trình)
 - Trong process based multitasking các tiến trình(process) có thể chạy cùng lúc.
+
 - Trong process based multitasking các tiến trình(process) được coi là đơn vị tính nhỏ nhất.
+
 - Process based multitasking tiêu tốn nhiều tài nguyên hơn.
+
 - Bản chất VDK là 1 tiến trình
+
 - Process cần phải cấp phát không gian địa chỉ (address space) cho chính nó.
-Ex: Ta có thể vừa nghe nhạc, vừa lướt web cùng một lúc. Processes trong trường hợp này chính là chương trình nghe nhạc (music player) và trình duyệt web(browser).
+
+Exam: Ta có thể vừa nghe nhạc, vừa lướt web cùng một lúc. Processes trong trường hợp này chính là chương trình nghe nhạc (music player) và trình duyệt web(browser).
 
 ## Thread (luồng)
 - Trong thread based multitasking các thread có thể chạy cùng lúc
+
 - Trong thread based multitasking thì thread được coi là đơn vị tính nhỏ nhất.
+
+- Bản chất luồng là nó chạy 1 cách tuần tự (nhìn như chạy song song nhưng là tuần tự).
+
 - Thread based multitasking tiêu tốn ít tài nguyên hơn so với process based multitasking.
+
 - Các thread chia sẻ không gian địa chỉ (address space) với nhau.
+
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8e1385d9-53bd-442d-857c-d381af08782c)
 
 Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web, vừa download file cùng một thời điểm. Ở đây, ta nhận thấy lướt web là một thread và việc download là một thread khác.
@@ -979,3 +990,5 @@ Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web,
            + Data Race: đồng bộ hóa dữ liệu.
            + DeadLock:
            + Race Condition: 
+- Luồng có 2 loại: (đồng bộ và bất dồng bộ)
+  
