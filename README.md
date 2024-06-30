@@ -959,13 +959,15 @@ VD:
    
 - Trong tiến trình (process) có thể bao gồm 1 hoặc nhiều thread khác nhau thực hiện công việc.
 
+- Và process chứa các tài nguyên như bộ nhớ, CPU, ...
+
 - Bản chất VDK là 1 tiến trình và mỗi process là 1 con VDK khác nhau.
 
 - Process based multitasking tiêu tốn nhiều tài nguyên hơn.
 
 - Process cần phải cấp phát không gian địa chỉ (address space) cho chính nó.
 
-Exam: Trong 1 app ứng dụng ta có thể làm nhiều việc như đọc thông báo, nhắn tin, gọi điện, .... Hoặc là trên máy tính ta chạy nhiều app khác nhau như chrom, word,..
+Exam: Trên máy tính ta chạy nhiều app khác nhau như chrom, word,..
 
 ## Thread (luồng)
 - Trong thread nằm trong 1 process. Có 1 hoặc nhiều thread chạy cùng lúc. Mỗi thread chạy 1 công việc khác nhau
@@ -982,13 +984,20 @@ Exam: Trong 1 app ứng dụng ta có thể làm nhiều việc như đọc thô
 
   ![image](https://github.com/NguyenEngineer/ADVANCED-C-C-/assets/120030797/8e1385d9-53bd-442d-857c-d381af08782c)
 
-Ex: Khi sử dụng trình duyệt web(browser), ta có thể vừa lướt web, vừa download file cùng một thời điểm. Ở đây, ta nhận thấy lướt web là một thread và việc download là một thread khác.
-** Cú pháp: thread _NAME_ (_NAME_FUNCTION_)
-            VD: thread thread_1(task_1);
+Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa download file cùng một thời điểm. Ở đây, ta nhận thấy lướt web là một thread và việc download là một thread khác.
+    Trong 1 app zalo ta có thể làm nhiều việc như đọc thông báo, nhắn tin, gọi điện, ....
+
+- Dùng std:thread để khởi tạo 1 thread object và tham số truyền vào là 1 callable (đối tượng có thể gọi).
+
+- Callable là 1 đoạn code có thể thực thi mà ta mong muốn khi 1 thread chạy.
+  
+                     Cú pháp: thread _NAME_ (_NAME_FUNCTION_)
+                           VD: thread thread_1(task_1);
+                                thread_1.join();       // câu lệnh này là đê thread thực hiện task_1 đến khi kết thúc hàm task_1
             
 - Đầu tiên ta phải include <thread>
 
-- Một thread có thể được create bằng nhiều cách khách nhau:
+- Một thread có thể được create bằng nhiều callable khách nhau:
             + Sử dụng Function Object
             + Sử dụng Function Pointer
             + Sử dụng Lambda Function
