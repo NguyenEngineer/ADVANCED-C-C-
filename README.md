@@ -1041,7 +1041,8 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
 
 - Một thread có thể được create bằng nhiều callable khách nhau:
   + Sử dụng Function Object
-        Sử dụng khi chúng ta cần có 1 class trong class đó và orverload operrator(). Function được overload sẽ chưa code để thực thi khi thread được tạo.
+        Là một đối tượng có thể được gọi như một hàm, nhờ vào việc overload operator(). Điều này cho phép bạn truyền đối tượng đó như một hàm vào các API yêu cầu hàm
+        Là 1 lớp có toán tử operator, Đây là nơi bạn định nghĩa công việc mà bạn muốn thực hiện trong thread.
 
              VD:        #include<iostream>
                         #include<thread>
