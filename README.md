@@ -1041,7 +1041,48 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
 
 - Một thread có thể được create bằng nhiều callable khách nhau:
   + Sử dụng Function Object
+        Sử dụng khi chúng ta cần có 1 class trong class đó và orverload operrator(). Function được overload sẽ chưa code để thực thi khi thread được tạo.
 
+             VD:        #include<iostream>
+                        #include<thread>
+                        
+                        using namespace std;
+                        
+                        class FunOBJ
+                        {
+                        private:
+                            
+                        public:
+                            void operator() ()
+                            {
+                                this_thread::sleep_for(chrono::seconds(2)); // giống hàm delay
+                                cout << "this is Function object" << endl;
+                            }
+                        };
+                        
+                        void task_1()
+                        {
+                            this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                            cout << "this is Function task_1" << endl;
+                        }
+                        
+                        int main()
+                        {
+                            FunOBJ myFunction;
+                            
+                            myFunction();
+                        
+                            thread thread_OBJ(myFunction);
+                            thread thread_1(task_1);
+                        
+                            thread_OBJ.join();
+                            thread_1.join();
+                        
+                            return 0;
+                        }
+                          
+  + Sử dụng Function Pointer
+            
           VD:     #include<iostream>
                   #include<thread>
                   using namespace std;
@@ -1055,9 +1096,7 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                       thread_1.join();               // câu lệnh này để thread_1 thực thi hàm task_1 để tránh lỗi bỏ qua lệnh.
                       return 0;
                   }
-  
-  + Sử dụng Function Pointer
-
+    
   + Sử dụng Lambda Function
   
 - Các vấn đề thường gặp trong đa luồng:
