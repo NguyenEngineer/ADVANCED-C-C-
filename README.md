@@ -949,11 +949,53 @@ VD:
          }
 
 </details>
-<details><summary> LESSION : Smart Poiter </summary>
+<details><summary> LESSION 5: Smart Poiter </summary>
 
+         VD: 
+                     #include<iostream>
+                     #include<memory>
+                     
+                     using namespace std;
+                     
+                     class Tinhdientich
+                     {
+                     private:
+                         int chieudai;
+                         int chieurong;
+                     
+                     public:
+                         Tinhdientich(int num_cd, int num_cr)
+                         {
+                             chieudai = num_cd;
+                             chieurong = num_cr;
+                             cout << "constuct is call" << endl;
+                         }
+                         void dientich()
+                         {
+                             cout << "Dien tich: " << chieudai * chieurong << endl;
+                         }
+                     
+                     
+                         ~Tinhdientich()
+                         {
+                             cout << " Destructer " << endl;
+                         };
+                     };
+                     
+                     int main()
+                     {
+                         shared_ptr <Tinhdientich> ptr1(new Tinhdientich(20,10));
+                     
+                         (*ptr1).dientich();
+                     
+                         cout << ptr1.use_count();
+                     
+                         return 0;
+                     }
    
 </details>
 <details><summary> LESSION 6: Mutithreading </summary>
+   
 ## Process (tiến trình)
 - Là để chỉ 1 chương trình khi dang chạy trên 1 hệ thống hoặc công việc chạy trên máy tính.
    
@@ -998,9 +1040,25 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
 - Đầu tiên ta phải include <thread>
 
 - Một thread có thể được create bằng nhiều callable khách nhau:
-            + Sử dụng Function Object
-            + Sử dụng Function Pointer
-            + Sử dụng Lambda Function
+  + Sử dụng Function Object
+
+          VD:     #include<iostream>
+                  #include<thread>
+                  using namespace std;
+                  void task_1()
+                  {
+                      //do something
+                  }
+                  int main()
+                  {
+                      thread thread_1(task_1);       // Khởi tạo 1 thread có tên là thread_1 và thread này có nhiệm vụ thực thi hàm task_1
+                      thread_1.join();               // câu lệnh này để thread_1 thực thi hàm task_1 để tránh lỗi bỏ qua lệnh.
+                      return 0;
+                  }
+  
+  + Sử dụng Function Pointer
+
+  + Sử dụng Lambda Function
   
 - Các vấn đề thường gặp trong đa luồng:
            + Data Race: đồng bộ hóa dữ liệu.
