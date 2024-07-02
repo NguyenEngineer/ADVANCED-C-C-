@@ -1116,6 +1116,23 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
        
                 + TH2: Nếu sử dụng mutex thì mutex giúp 1 trong 3 luồng truy cập đến tài nguyên chung. (task_1 truy cập đến tài nguyên chung thì task_2 và task_3 ko đc truy cập đến và ngược lại).
 
+                       Cách ct thực hiện:  task_1 tới hàm mutex_cout.lock() thì ko khóa thì khóa lại, rồi thực thi lệnh tiếp theo in ra .... và nhảy tới hàm task_2
+                                           task_2 tới hàm mutex_cout.lock() kiểm tra thì đã khóa ở trên và đứng chờ và nhảy tới hàm task_3
+                                           tash_3 tới hàm mutex_cout.lock() kiểm tra thì đã khóa ở trên và đứng chờ và nhảy trở về lại hàm task_1
+
+                                           task_1 tới hàm mutex_cout.unlock() và mở khóa ra và nhảy tới hàm task_2.
+                                           task_2 tới hàm mutex_cout.lock() kiểm tra thì đã mở khóa ở trên thì khóa lại, rồi thực thi lệnh tiếp theo in ra .... và nhảy tới hàm task_3
+                                           tash_3 tới hàm mutex_cout.lock() kiểm tra thì đã khóa ở trên và đứng chờ và nhảy trở về lại hàm task_1
+       
+                                           task_1 tới hàm mutex_cout.lock() và kiểm tra thấy đã khóa ở trên và đứng chờ và nhảy tới hàm task_2.
+                                           task_2 tới hàm mutex_cout.unlock() và mở khóa ra và nhảy tới hàm task_3.
+                                           tash_3 tới hàm mutex_cout.lock() kiểm tra thì đã mở khóa ở trên thì khóa lại, rồi thực thi lệnh tiếp theo in ra .... và nhảy tới hàm task_1
+       
+                                           task_1 tới hàm mutex_cout.lock() và kiểm tra thấy đã khóa ở trên và đứng chờ và nhảy tới hàm task_2.
+                                           task_2 tới hàm mutex_cout.lock() kiểm tra thì đã khóa ở trên và đứng chờ và nhảy tới hàm task_3
+                                           tash_3 tới hàm mutex_cout.unlock() và mở khóa ra và nhảy tới hàm task_1.
+                                            
+
                                     #include<thread>
                                     #include<mutex>
                                     using namespace std;
@@ -1123,9 +1140,9 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                                     void task_1()
                                     {
                                         this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
-                                        mutex_cout.lock();                              // Nếu luồng truy cập đến mà lock này đã khóa thì mở khóa còn ko thì khóa lại nhường cho luồn khác sử dụng
+                                        mutex_cout.lock();                              // Nếu luồng truy cập đến mà lock này đã khóa thì chờ ở dòng này, còn ko thì khóa lại và thực thi tiếp dòng tiếp theo.
                                         cout << "this is Function task_1" << endl;
-                                        mutex_cout.unlock();
+                                        mutex_cout.unlock();                            // Mở khóa
                                     }
                                     
                                     void task_2()
