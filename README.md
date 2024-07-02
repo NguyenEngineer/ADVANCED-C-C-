@@ -1044,8 +1044,6 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                            VD: thread thread_1(task_1);
                                 thread_1.join();       // câu lệnh này là đê thread thực hiện task_1 đến khi kết thúc hàm task_1
             
-- Đầu tiên ta phải include <thread>
-
 - Một thread có thể được create bằng nhiều callable khách nhau:
   + Sử dụng Function Object
         Là một đối tượng có thể được gọi như một hàm, nhờ vào việc overload operator(). Điều này cho phép bạn truyền đối tượng đó như một hàm vào các API yêu cầu hàm
@@ -1108,9 +1106,62 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
   + Sử dụng Lambda Function
   
 - Các vấn đề thường gặp trong đa luồng:
-           + Data Race: đồng bộ hóa dữ liệu.
-           + DeadLock:
-           + Race Condition:
+     + Data Race: đồng bộ hóa dữ liệu.
+       
+            VD: Phần mềm vscode bản chất là 1 tiến trình và terminal là 1 tài nguyên, thì tất các các luồng đều truy cập đến tài nguyên chung.
+       
+                Mà đối với các tài nguyên sử dụng chung, trong 1 thời điểm chỉ cho phép 1 luồng truy cập vào nó.
+       
+                + TH1: Nếu ko sử dụng mutex thì cả 3 luồng sẽ truy cập đến tài nguyên chung sẽ gây ra lỗi đầu ra dữ liệu ko mong muốn.
+       
+                + TH2: Nếu sử dụng mutex thì mutex giúp 1 trong 3 luồng truy cập đến tài nguyên chung. (task_1 truy cập đến tài nguyên chung thì task_2 và task_3 ko đc truy cập đến và ngược lại).
+
+                                    #include<thread>
+                                    #include<mutex>
+                                    using namespace std;
+                                    mutex mutex_cout;
+                                    void task_1()
+                                    {
+                                        this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                        mutex_cout.lock();                              // Nếu luồng truy cập đến mà lock này đã khóa thì mở khóa còn ko thì khóa lại nhường cho luồn khác sử dụng
+                                        cout << "this is Function task_1" << endl;
+                                        mutex_cout.unlock();
+                                    }
+                                    
+                                    void task_2()
+                                    {
+                                        this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                        mutex_cout.lock();
+                                        cout << "this is Function task_2" << endl;
+                                        mutex_cout.unlock();
+                                    }
+                                    
+                                    void task_3()
+                                    {
+                                        this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                        mutex_cout.lock();
+                                        cout << "this is Function task_3" << endl;
+                                        mutex_cout.unlock();
+                                    }
+                                    
+                                    int main()
+                                    {
+                                        while (1)
+                                        {
+                                            thread thread_1(task_1);
+                                            thread thread_2(task_2);
+                                            thread thread_3(task_3);
+                                    
+                                            thread_1.join();
+                                            thread_2.join();
+                                            thread_3.join();
+                                        }
+                                        return 0;
+                                    }
+                                               
+     + DeadLock:
+       
+     + Race Condition:
   
 - Luồng có 2 loại: (đồng bộ và bất dồng bộ)
   
