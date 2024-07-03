@@ -1177,6 +1177,46 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                                     }
                                                
      + DeadLock:
+
+                 -Khi ta đặt nhiều khóa trong luồng và ta đặt thứ tự khóa chéo nhau trong các luồng thì sẽ xảy ra hiện tượng deadLock.
+               
+                               VD:     mutex mutex_cout, mutex2;
+                                       void task_1()
+                                       {
+                                           this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                           mutex_cout.lock();                              // Bước 1
+                                           mutex2.lock();                                  // Bước 4
+                                           cout << "this is Function task_1" << endl;
+                                           mutex_cout.unlock();
+                                       }
+                                       
+                                       void task_2()
+                                       {
+                                           this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                           mutex2.lock();                                  // Bước 2
+                                           mutex_cout.lock();                              // Bước 3
+                                           cout << "this is Function task_2" << endl;
+       
+                 - CT sẽ bị deadlock vì task_1 sẽ bị đứng chờ ở lệnh mutex2.lock() và task_2 bị đứng ở lệnh mutex_cout.lock()
+
+                => Vậy nên phải đặt đúng thứ tự các khóa lại với nhau.
+       
+                                      VD:     mutex mutex_cout, mutex2;
+                                       void task_1()
+                                       {
+                                           this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                           mutex_cout.lock();                              // Bước 1
+                                           mutex2.lock();                                  // Bước 4
+                                           cout << "this is Function task_1" << endl;
+                                           mutex_cout.unlock();
+                                       }
+                                       
+                                       void task_2()
+                                       {
+                                           this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                           mutex_cout.lock();                              // Bước 3
+                                           mutex2.lock();                                  // Bước 2
+                                           cout << "this is Function task_2" << endl;
        
      + Race Condition:
   
