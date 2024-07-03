@@ -1219,6 +1219,30 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                                            cout << "this is Function task_2" << endl;
        
      + Race Condition:
-  
+          - Là điều kiện thực thi luồng, kiểu như là ta muốn luồng nào đc thực thi trước luồng nào thực thi tiếp theo.
+            
+                                      VD:    #include<condition_variable>
+                                             mutex mutex_cout, mutex2;
+                                             
+                                             condition_variable make_cake;
+                                             bool Ready = false;
+                                             
+                                             void task_1()
+                                             {
+                                                 this_thread::sleep_for(chrono::seconds(2));     // giống hàm delay
+                                             
+                                                 lock_guard<mutex> lock(mutex_cout);           // giống smart poiter và chức năng giống như lock() nếu khóa thì đứng chờ, chưa khóa thì khóa và thực hiện lệnh tiếp theo
+                                                 Ready = true;
+                                                 cout << "Function task_1 is done" << endl;
+                                                 make_cake.notify_one();                        // tự mở khi thực hiện xong hàm, báo cho luồng khác là đã xong.
+                                             }
+                                             void task_2()
+                                             {
+                                                 unique_lock<mutex>  lock(mutex2);
+                                                 make_cake.wait(lock, [] {return Ready; });      //chờ khi có luồng khác báo đã thực thi xong và thực thi hàm của mình đi. 
+                                                 Ready = false;
+                                                 cout << "this is Function task_2" << endl;
+                                             }
+
 - Luồng có 2 loại: (đồng bộ và bất dồng bộ)
   
