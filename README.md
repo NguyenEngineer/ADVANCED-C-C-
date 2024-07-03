@@ -1243,6 +1243,58 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                                                  Ready = false;
                                                  cout << "this is Function task_2" << endl;
                                              }
-
+            
+               - Ví dụ trên thực thi xong luồng task_1 thì luồng task_2 mới được thực thi.
 - Luồng có 2 loại: (đồng bộ và bất dồng bộ)
-  
+     + Đồng bộ là luồng hoạt động bình thường, sử dụng các tài nguyên chung truy cập cùng nhau cùng 1 thời điểm. Làm việc chung với nhau.
+ 
+     + Bất đồng bộ là luồng hoạt động không cần chờ đợi kết quả trước khi tiếp tục thực hiện luồng khác. Các luồng làm việc độc lập và ko phụ thuộc vào nhau.
+ 
+                                VD: #include<future>
+                                    int Couter = 0;
+                                    mutex mutex_cout;
+                                    void loading()
+                                    {
+                                        for(Couter = 0; Couter <= 10; Couter++)
+                                        {
+                                            this_thread::sleep_for(chrono::seconds(2));
+                                        }
+                                    
+                                    }
+                                    
+                                    void displayProcessLoading()
+                                    {
+                                        while (1)
+                                        {
+                                            this_thread::sleep_for(chrono::seconds(1));
+                                            mutex_cout.lock();
+                                            cout << "Loading game: " << Couter * 10 << "%" <<  endl;
+                                            mutex_cout.unlock();
+                                    
+                                            if(Couter == 10) break;
+                                        }  
+                                    }
+                                    
+                                    void displayComplete()
+                                    {
+                                        mutex_cout.lock();
+                                        cout << "Screen display game" << endl;
+                                        mutex_cout.unlock();
+                                    }
+                                    
+                                    int main()
+                                    {
+                                        future<void> result = async(launch::async, loading);            // khởi tạo luồng chạy độc lập (bất đồng bộ) và tham số truyền vào là hàm loading
+                                        thread thread_1(displayProcessLoading);
+                                    
+                                        result.get();                                                   // lệnh này là kiểm tra hàm async đã thực hiện xong chưa 
+                                        displayComplete();
+                                    
+                                        thread_1.join();
+                                        return 0;
+                                    }
+
+  Giải thích:
+          + " future<void> result = async(launch::async, loading) " khởi tạo 1 luồng bất đồng bộ đươc thực hiện riêng biệt ko lm ảnh hường đến ct chính.
+          + Sau khi đã khởi tạo 1 luồng bất đồng bộ thì CT tiếp tục thực hiện hàm tiếp theo " thread thread_1(displayProcessLoading) "
+          + "result.get()" CT sẽ tiếp tục chạy và hàm này sẽ kiểm tra xem luồng bất đồng bộ đã thực hiện xong chưa. Nếu chưa thì chờ, nếu xong thì nhảy xuống thực hiện lệnh tiếp theo "displayComplete();"
