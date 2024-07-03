@@ -1295,6 +1295,8 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                                     }
 
   Giải thích:
-          + " future<void> result = async(launch::async, loading) " khởi tạo 1 luồng bất đồng bộ đươc thực hiện riêng biệt ko lm ảnh hường đến ct chính.
-          + Sau khi đã khởi tạo 1 luồng bất đồng bộ thì CT tiếp tục thực hiện hàm tiếp theo " thread thread_1(displayProcessLoading) "
-          + "result.get()" CT sẽ tiếp tục chạy và hàm này sẽ kiểm tra xem luồng bất đồng bộ đã thực hiện xong chưa. Nếu chưa thì chờ, nếu xong thì nhảy xuống thực hiện lệnh tiếp theo "displayComplete();"
+     + "future<void> result = async(launch::async, loading) " khởi tạo 1 luồng bất đồng bộ đươc thực hiện riêng biệt ko lm ảnh hường đến ct chính.
+     
+     + Sau khi đã khởi tạo 1 luồng bất đồng bộ thì CT tiếp tục thực hiện hàm tiếp theo " thread thread_1(displayProcessLoading) "
+     
+     + "result.get()" CT sẽ tiếp tục chạy và hàm này sẽ kiểm tra xem luồng bất đồng bộ đã thực hiện xong chưa. Nếu chưa thì chờ, nếu xong thì nhảy xuống thực hiện lệnh tiếp theo "displayComplete();"
