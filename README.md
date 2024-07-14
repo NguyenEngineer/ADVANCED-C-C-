@@ -984,11 +984,9 @@ Các loại poiter:
 
 - Dùng nhiều sẽ giảm hiệu suất CT.
 
-- Để quản lý share_ptr sử dụng cơ chế reference couting (đếm về 0 )để đảm bảo khi share_ptr ko còn quản lý tài nguyên đó nữa thì nó sẽ tự động thu hồi.
+- Để quản lý share_ptr sử dụng cơ chế reference couting. Nghĩa là khi 1 con trỏ trỏ đến thì reference couting sẽ tăng lên 1 và khi 1 share_poiter hủy thì reference couting sẽ giảm đi 1
 
-- Vấn đề rủi ro: Cyclic dependency của share_ptr (sảy ra khi 2 class chứa share_poiter trỏ vào nhau)
-
-- Khi này cơ chế reference couting ko thể đếm về 0 để thu hồi vùng nhớ khiến cho vùng nhớ ko đc giải phóng. Do vậy ta có thêm weak_ptr.
+- Khi reference couting = 0 thì sẽ tự động hủy đi vùng nhớ đó.
 
          VD: 
                      #include<iostream>
@@ -1033,14 +1031,18 @@ Các loại poiter:
                      }
 
 •	weak_ptr ( giống như share_ptr nhưng nó ko duy trì cơ chế reference couting. Nghĩa là dù có 4 weak_ptr trỏ vào tài nguyên đó mà ko có share_ptr nào trỏ đến TN đó hết thì vùng nhớ sẽ đc thu hồi)
-weak_ptr được sử dụng với các shared_ptr trong trường hợp circular dependencies (có thể gây nên circular references
+
+- Vấn đề rủi ro: Cyclic dependency của share_ptr (sảy ra khi 2 class chứa share_poiter trỏ vào nhau reference couting sẽ ko thể về 0 dc và sẽ ko thu hồi đc vùng nhớ)
+
+- weak_ptr được sử dụng cùng với các shared_ptr
 
 ![image](https://github.com/user-attachments/assets/f69a08ff-c274-494f-b9c2-4eee7a187feb)
 
-![image](https://github.com/user-attachments/assets/64616a5c-3271-4a8c-afd1-ccd4ee802fcd)
+![image](https://github.com/user-attachments/assets/77c48490-d85f-44bd-a727-1166fb7c2f48)
 
- 
+
 - weak_ptr cũng có 1 điểm yếu rất lớn khi sử dụng, mỗi lần sử dụng tài nguyên mà weak_ptr tham chiếu đến, cần phải thực hiện câu lệnh lock() để tạo ra 1 shared_ptr trỏ tới tài nguyên đó
+
 - chi phí để copy-constructing 1 shared_ptr (tạo ra 1 đối tượng shared_ptr bằng copy constructor của nó thông qua 1 shared_ptr khác đã tham chiếu tài nguyên) là rất lớn so với các câu lệnh tính toán thông thường 
 
 
