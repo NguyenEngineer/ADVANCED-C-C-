@@ -958,6 +958,38 @@ VD:
 </details>
 <details><summary> LESSION 5: Smart Poiter </summary>
 
+
+- Để có thể tự động hóa việc cấp phát và tự thu hồi vùng nhớ thì ta sử dụng object trong c++.
+
+- Smart poiter là con trỏ có thể tự giải phóng nó sau khi đã sử dụng để tránh lỗi memory leak.
+
+![image](https://github.com/user-attachments/assets/18cbf258-cccb-4e31-98f6-bca707e291be)
+
+
+- Sử dụng bộ thư viện <memory> để sử dụng các smart poiter này.
+
+Các loại poiter:
+•	auto_ptr (ít được dùng)
+
+•	unique_ptr (sở hữu độc quyền 1 đối tượng được cấp phát động)  
+
+- Unipue poiter chỉ cho phép 1 owner duy nhất tại 1 thời điểm.( tức là chỉ 1 con trỏ chỉ đc trỏ tới 1 đối tượng).
+
+- Khi có 2 unique_ptr quản lý 1 tài nguyên thì sẽ vi phạm nguyên tắc. Để chuyển tài nguyên của 1 unique_ptr này sang unique_ ptr khác ta dùng lệnh move().
+
+  ![image](https://github.com/user-attachments/assets/97b4d4c1-9d57-4ff3-a3f7-6f83b1aed6d6)
+
+
+•	shared_ptr (cho phép nhiều con trỏ share_poiter cùng trỏ đến 1 đối tượng được cấp phát. Nghĩa là tài nguyên mà share_ptr chia sẽ thì các đối tượng khác có thể sở hữu nó)
+
+- Dùng nhiều sẽ giảm hiệu suất CT.
+
+- Để quản lý share_ptr sử dụng cơ chế reference couting (đếm về 0 )để đảm bảo khi share_ptr ko còn quản lý tài nguyên đó nữa thì nó sẽ tự động thu hồi.
+
+- Vấn đề rủi ro: Cyclic dependency của share_ptr (sảy ra khi 2 class chứa share_poiter trỏ vào nhau)
+
+- Khi này cơ chế reference couting ko thể đếm về 0 để thu hồi vùng nhớ khiến cho vùng nhớ ko đc giải phóng. Do vậy ta có thêm weak_ptr.
+
          VD: 
                      #include<iostream>
                      #include<memory>
@@ -999,6 +1031,19 @@ VD:
                      
                          return 0;
                      }
+
+•	weak_ptr ( giống như share_ptr nhưng nó ko duy trì cơ chế reference couting. Nghĩa là dù có 4 weak_ptr trỏ vào tài nguyên đó mà ko có share_ptr nào trỏ đến TN đó hết thì vùng nhớ sẽ đc thu hồi)
+weak_ptr được sử dụng với các shared_ptr trong trường hợp circular dependencies (có thể gây nên circular references
+
+![image](https://github.com/user-attachments/assets/f69a08ff-c274-494f-b9c2-4eee7a187feb)
+
+![image](https://github.com/user-attachments/assets/64616a5c-3271-4a8c-afd1-ccd4ee802fcd)
+
+ 
+- weak_ptr cũng có 1 điểm yếu rất lớn khi sử dụng, mỗi lần sử dụng tài nguyên mà weak_ptr tham chiếu đến, cần phải thực hiện câu lệnh lock() để tạo ra 1 shared_ptr trỏ tới tài nguyên đó
+- chi phí để copy-constructing 1 shared_ptr (tạo ra 1 đối tượng shared_ptr bằng copy constructor của nó thông qua 1 shared_ptr khác đã tham chiếu tài nguyên) là rất lớn so với các câu lệnh tính toán thông thường 
+
+
    
 </details>
 <details><summary> LESSION 6: Mutithreading </summary>
