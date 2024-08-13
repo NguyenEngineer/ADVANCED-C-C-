@@ -51,6 +51,9 @@
              display(9,3,'A',8,7,5);
          }
 - Thư viện Assert
+  
+  Thư viện C cung cấp một macro gọi là assert có thể được sử dụng để kiểm tra một giả định được tạo bởi chương trình và in một thông báo chẩn đoán tìm lỗi nếu giả định này là false.
+  
    + Cung cấp macro assert. 
    + Macro này được sử dụng để kiểm tra một điều kiện. 
    + Nếu điều kiện đúng (true), không có gì xảy ra và chương trình tiếp tục thực thi.
