@@ -28,11 +28,28 @@
    
 - Thư viện Stdarg cung cấp các phương thức làm việc với các input parameter không xác định. Ví dụ điển hình là *scanf*,*printf*
 - Các tham số:
-   + va_list:là một kiểu dữ liệu để đại diện cho danh sách các đối số biến đổi.
-   + va_start: Bắt đầu một danh sách đối số biến đổi. Nó cần được gọi trước khi truy cập các đối số biến đổi đầu tiên.
+   + va_list: là một kiểu dữ liệu để đại diện cho danh sách các đối số biến đổi.
+   + va_start: Bắt đầu một danh sách đối số biến đổi. VD: va_start(arg, )
    + va_arg: Truy cập một đối số trong danh sách. Hàm này nhận một đối số của kiểu được xác định bởi tham số thứ .
    + va_end: Kết thúc việc sử dụng danh sách đối số biến đổi. Nó cần được gọi trước khi kết thúc hàm.
 
+         #include <stdarg.h>
+         
+         void display(int var1,...)
+         {
+             va_list arg;        // tạo ra 1 kiểu dữ kiệu tự định nghĩa
+             va_start(arg, var1);    // truyền tham số vào arg và thứ tự bắt đầu là sau var1. 
+                                     //VD mảng (5,3,5,8,7,5) thì thứ tự băt đầu là 3,5,.. và số 5 đó là số lượng phần tử của mảng đó
+         
+             printf("Value: %d\n", va_arg(arg, int)); // in ra giá trị của mảng với kdl int ( có thể thay đổi kdl khác)
+             printf("Value: %c\n", va_arg(arg, char));
+             va_end(arg);    // thu hổi vùng nhớ mà va_list khởi tạo
+         }
+         
+         int main()
+         {
+             display(9,3,'A',8,7,5);
+         }
 - Thư viện Assert
    + Cung cấp macro assert. 
    + Macro này được sử dụng để kiểm tra một điều kiện. 
@@ -40,6 +57,16 @@
    + Nếu điều kiện sai (false), chương trình dừng lại và thông báo một thông điệp lỗi.
    + Dùng trong debug, dùng #define NDEBUG để tắt debug
 
+Cú pháp:  #define LOG (condition, cmd)  assert(condition && #cmd)
+
+VD:
+
+      #define Assert_in_range (val, min, max) assert( (val) >= (min) && (val) <= (max))
+
+      void set_range(int level)
+      {
+         Assert_in_range (level, 1 , 10);   // nếu set level = 0 thi sẽ báo lỗi chổ này (khi lỗi nó sẽ thông báo lỗi chổ này để cho ng dùng dễ nhận biết)
+      }
   
 </details>
 <details><summary> LESSION 3: Point in C</summary>
