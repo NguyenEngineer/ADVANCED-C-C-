@@ -1093,6 +1093,8 @@ Các loại poiter:
 
 - Process cần phải cấp phát không gian địa chỉ (address space) cho chính nó.
 
+- 1 đoạn mã code khi ta viết mà ko sử dụng thread thì nó cũng chỉ là 1 process.
+
 Exam: Trên máy tính ta chạy nhiều app khác nhau như chrom, word,..
 
 ## Thread (luồng)
