@@ -1183,7 +1183,60 @@ Ex: Khi sử dụng trình duyệt chorme, ta có thể vừa lướt web, vừa
                   }
     
   + Sử dụng Lambda Function
-  
+
+           VD:
+             auto fun = [] (int x)
+             {
+                 while(x-- > 0)
+                 {
+                     std::cout << x << std::endl;
+                 }
+             };
+             std::thread t1(fun, 10);
+             t1.join();
+   + Sử dụng Non_static function
+     
+           VD:
+                 class Base
+                  {
+                  public:
+                      void non_func(int x)
+                      {
+                          while(x-- > 0)
+                          {
+                              std::cout << x << std::endl;
+                          }
+                      }
+                  };
+                  int main()
+                  {
+                      Base b1;
+                      std::thread t1(&Base::non_func, &b1, 10);
+                      t1.join();
+                  
+                      return 0;
+                  }
+   + Sử dụng Static Function
+
+           VD:
+              class Base
+               {
+               public:
+                   static void non_func(int x)
+                   {
+                       while(x-- > 0)
+                       {
+                           std::cout << x << std::endl;
+                       }
+                   }
+               };
+               
+               int main()
+               {
+                   Base b1;
+                   std::thread t1(&Base::non_func, 10);
+                   t1.join();
+               }
 - Các vấn đề thường gặp trong đa luồng:
      + Data Race: đồng bộ hóa dữ liệu.
        
